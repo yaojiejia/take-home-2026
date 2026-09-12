@@ -22,7 +22,8 @@ CHROME_TOKENS = {
 }
 META_IMAGE_KEYS = ("og:image", "og:image:url", "og:image:secure_url", "twitter:image", "twitter:image:src")
 IMAGE_ATTRS = ("src", "data-src", "srcset", "data-srcset", "data-original", "data-lazy", "data-zoom-image", "data-large", "data-image")
-IMAGE_NOISE_WORDS = ("logo", "icon", "sprite", "flag", "badge", "payment", "placeholder", "pixel", "loading", "spinner", "avatar", "favicon")
+URL_NOISE_TOKENS = {"logo", "logos", "icon", "icons", "sprite", "sprites", "flag", "flags", "badge", "badges", "payment", "placeholder", "pixel", "loading", "loader", "spinner", "avatar", "favicon"}
+ALT_NOISE_TOKENS = {"logo", "icon", "sprite", "placeholder", "spinner", "favicon"}
 IMAGE_PATH_HINTS = ("/image", "/img/", "/images/", "/media/", "/files/", "/products/")
 NON_IMAGE_SUFFIXES = (".js", ".css", ".html", ".json", ".svg", ".gif")
 RESIZE_QUERY_KEYS = {
@@ -192,10 +193,13 @@ def normalize_url(url: str, base_url: str) -> str | None:
 
 
 def is_plausible_image(url: str, context: str) -> bool:
-    lowered = (url + " " + context).lower()
-    if any(word in lowered for word in IMAGE_NOISE_WORDS):
+    if URL_NOISE_TOKENS & tokens(urlsplit(url).path) or ALT_NOISE_TOKENS & tokens(context):
         return False
     return bool(IMAGE_EXT_RE.search(url) or looks_like_image_path(url))
+
+
+def tokens(text: str) -> set[str]:
+    return set(re.split(r"[^a-z0-9]+", text.lower()))
 
 
 def looks_like_image_path(url: str) -> bool:
