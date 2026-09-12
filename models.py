@@ -107,11 +107,12 @@ class ExtractedProduct(BaseModel):
     variants: list[ExtractedVariant]
     linked_colorways: list[ExtractedColorway]
     category_hints: list[str]
+    taxonomy_root: str
 
 
 class CategoryChoice(BaseModel):
     reasoning: str
-    category: str
+    category_id: int
 
 
 class ExtractionResult(BaseModel):

@@ -1,4 +1,4 @@
-EXTRACTION_PROMPT = """You extract structured product data from a compacted representation of a single
+EXTRACTION_PROMPT_TEMPLATE = """You extract structured product data from a compacted representation of a single
 retail product detail page. The representation contains page metadata, JSON-LD, pruned embedded
 page data, the visible page text, and numbered lists of image and video candidates.
 
@@ -46,13 +46,19 @@ Field guidance:
   same-page option already covered by variants.
 - category_hints: breadcrumb entries, product type labels, or similar taxonomy clues from the page,
   most general first.
+- taxonomy_root: the one top-level section of Google's Product Taxonomy that the product itself
+  belongs to (what it is, not what it is used with), copied exactly from this list:
+  {taxonomy_roots}
 
 Be faithful to the page. Never fabricate values that the page does not support."""
 
 CATEGORY_PROMPT = """You classify retail products into Google's Product Taxonomy.
-You are shown a product summary and a list of candidate categories. Reply with exactly one
-category string copied verbatim from the candidate list. The retailer's own breadcrumb is only
-a hint; it is never a valid answer unless it also appears in the candidate list. Choose the most
-specific candidate that genuinely describes what the product is (not what it is used with, or
-where it is sold). If no candidate is more specific than the current category, reply with the
-current category."""
+You are shown a product summary and an indented tree of candidate categories, each with a
+numeric id. Indentation shows the parent; a child only applies when its parent applies too.
+Reply with the id of the single most specific category that genuinely describes what the
+product is (not what it is used with, or where it is sold). The retailer's own breadcrumb is
+only a hint. If no deeper category fits, reply with the id of the current category."""
+
+
+def extraction_prompt(taxonomy_roots: list[str]) -> str:
+    return EXTRACTION_PROMPT_TEMPLATE.replace("{taxonomy_roots}", "; ".join(taxonomy_roots))

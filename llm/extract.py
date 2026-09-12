@@ -1,8 +1,8 @@
 import re
 
 from llm import ai
-from llm.categorize import classify
-from llm.prompts import EXTRACTION_PROMPT
+from llm.categorize import TOP_LEVEL, classify
+from llm.prompts import extraction_prompt
 from llm.settings import DEFAULT_MODEL, request_options
 from models import (
     Category,
@@ -19,6 +19,7 @@ from models import (
 from utils.html import page_identifiers
 from utils.preprocess import build_bundle, render_bundle
 
+EXTRACTION_PROMPT = extraction_prompt(TOP_LEVEL)
 
 
 async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
@@ -36,7 +37,7 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
     if not price_is_grounded(extracted.price, page_numbers):
         raise ValueError(f"No price grounded in the page (model answered {extracted.price})")
     drop_ungrounded_sizes(extracted, rendered.lower())
-    category = await classify(category_summary(extracted), model)
+    category = await classify(category_summary(extracted), extracted.taxonomy_root, model)
     return assemble(extracted, bundle, category), bundle
 
 

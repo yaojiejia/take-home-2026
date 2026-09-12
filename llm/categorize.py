@@ -1,4 +1,3 @@
-import difflib
 from collections import defaultdict
 from pathlib import Path
 
@@ -9,7 +8,7 @@ from models import Category, CategoryChoice
 
 TAXONOMY_FILE = Path(__file__).resolve().parent.parent / "categories.txt"
 SEPARATOR = " > "
-MAX_OPTION_CHARS = 50_000
+MAX_OPTION_CHARS = 16_000
 MAX_STEPS = 6
 MAX_REJECTED = 2
 
@@ -28,31 +27,31 @@ def load_taxonomy() -> tuple[list[str], dict[str, list[str]]]:
 
 
 PATHS, CHILDREN = load_taxonomy()
-PATH_SET = set(PATHS)
+TOP_LEVEL = CHILDREN[""]
 
 
-async def classify(summary: str, model: str) -> Category:
-    node = ""
-    rejected: list[str] = []
+async def classify(summary: str, root_hint: str, model: str) -> Category:
+    node = resolve_root(root_hint)
+    rejected: list[int] = []
     for _ in range(MAX_STEPS):
         options, complete = candidate_options(node)
-        if not options:
+        if len(options) <= 1:
             break
         choice = await ai.responses(
             model,
             [
                 {"role": "system", "content": CATEGORY_PROMPT},
-                {"role": "user", "content": build_prompt(summary, node, options, rejected)},
+                {"role": "user", "content": build_prompt(summary, options, rejected)},
             ],
             text_format=CategoryChoice,
             **request_options(model),
         )
-        picked = resolve(choice.category, options + ([node] if node else []))
-        if picked is None:
-            rejected.append(choice.category)
+        if not 0 <= choice.category_id < len(options):
+            rejected.append(choice.category_id)
             if len(rejected) >= MAX_REJECTED:
                 break
             continue
+        picked = options[choice.category_id]
         if picked == node:
             break
         node = picked
@@ -64,11 +63,19 @@ async def classify(summary: str, model: str) -> Category:
     return Category(name=node)
 
 
+def resolve_root(hint: str) -> str:
+    wanted = hint.strip().lower()
+    for top in TOP_LEVEL:
+        if top.lower() == wanted:
+            return top
+    return ""
+
+
 def candidate_options(node: str) -> tuple[list[str], bool]:
-    everything = descendants(node)
-    if sum(len(p) + 1 for p in everything) <= MAX_OPTION_CHARS:
+    everything = ([node] if node else []) + descendants(node)
+    if len(render_tree(everything)) <= MAX_OPTION_CHARS:
         return everything, True
-    two_levels = []
+    two_levels = [node] if node else []
     for child in CHILDREN.get(node, []):
         two_levels.append(child)
         two_levels.extend(CHILDREN.get(child, []))
@@ -82,30 +89,21 @@ def descendants(node: str) -> list[str]:
     return [p for p in PATHS if p.startswith(prefix)]
 
 
-def build_prompt(summary: str, node: str, options: list[str], rejected: list[str]) -> str:
+def render_tree(options: list[str]) -> str:
+    base_depth = options[0].count(SEPARATOR)
+    lines = []
+    for i, path in enumerate(options):
+        depth = path.count(SEPARATOR) - base_depth
+        lines.append(f"{'  ' * depth}[{i}] {path.rsplit(SEPARATOR, 1)[-1]}")
+    return "\n".join(lines)
+
+
+def build_prompt(summary: str, options: list[str], rejected: list[int]) -> str:
     warning = ""
     if rejected:
-        warning = "\n\nYour previous answer was not in the candidate list and was rejected: " + "; ".join(rejected) + "\nCopy one candidate exactly."
+        warning = f"\n\nYour previous answer was not a valid id and was rejected: {rejected}\nReply with an id between 0 and {len(options) - 1}."
     return (
-        f"CANDIDATE CATEGORIES:\n" + "\n".join(options) + "\n\n"
-        f"CURRENT CATEGORY: {node or '(none yet)'}\n\n"
+        f"CANDIDATE CATEGORIES (indented tree, [id] name; the top entry is the current category):\n"
+        f"{render_tree(options)}\n\n"
         f"PRODUCT:\n{summary}" + warning
     )
-
-
-def resolve(answer: str, options: list[str]) -> str | None:
-    answer = answer.strip().strip("\"'")
-    if answer in options or answer in PATH_SET:
-        return answer
-    lowered = {o.lower(): o for o in options}
-    if answer.lower() in lowered:
-        return lowered[answer.lower()]
-    prefixes = [o for o in options if answer.lower().startswith(o.lower() + SEPARATOR)]
-    if prefixes:
-        return max(prefixes, key=len)
-    close = difflib.get_close_matches(answer, options, n=1, cutoff=0.8)
-    if close:
-        return close[0]
-    leaf = answer.rsplit(SEPARATOR, 1)[-1].lower()
-    by_leaf = [o for o in options if o.rsplit(SEPARATOR, 1)[-1].lower() == leaf]
-    return by_leaf[0] if len(by_leaf) == 1 else None
