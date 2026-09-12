@@ -174,7 +174,9 @@ def split_by_page_identifier(extracted: ExtractedProduct, identifiers: set[str])
             color = next((o.value for o in v.options if o.name.lower() in ("color", "colour")), v.sku)
             entry = collapsed.setdefault(color, ExtractedColorway(color=color, sku=v.sku, price=v.price, compare_at_price=v.compare_at_price, available=None, image_ids=[]))
             entry.image_ids = entry.image_ids or v.image_ids
-    return on_page, list(collapsed.values()) + extracted.linked_colorways
+    named = {(c.sku or "").lower() for c in extracted.linked_colorways if c.sku}
+    extra = [c for c in collapsed.values() if (c.sku or "").lower() not in named]
+    return on_page, extracted.linked_colorways + extra
 
 
 def variant_price(price: float | None, compare_at: float | None, currency: str, base: tuple[float, float | None]) -> Price | None:
