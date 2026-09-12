@@ -1,4 +1,7 @@
+import logging
 import re
+
+from pydantic import ValidationError
 
 from llm import ai
 from llm.categorize import TOP_LEVEL, classify
@@ -19,6 +22,9 @@ from models import (
 from utils.html import page_identifiers
 from utils.preprocess import build_bundle, render_bundle
 
+logger = logging.getLogger(__name__)
+PARSE_ATTEMPTS = 2
+
 EXTRACTION_PROMPT = extraction_prompt(TOP_LEVEL)
 
 
@@ -30,15 +36,24 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
         {"role": "system", "content": EXTRACTION_PROMPT},
         {"role": "user", "content": rendered},
     ]
-    extracted = await ai.responses(model, messages, text_format=ExtractedProduct, **request_options(model))
+    extracted = await parse_with_retry(model, messages)
     if not price_is_grounded(extracted.price, page_numbers):
         messages.append({"role": "user", "content": price_correction(extracted.price)})
-        extracted = await ai.responses(model, messages, text_format=ExtractedProduct, **request_options(model))
+        extracted = await parse_with_retry(model, messages)
     if not price_is_grounded(extracted.price, page_numbers):
         raise ValueError(f"No price grounded in the page (model answered {extracted.price})")
     drop_ungrounded_sizes(extracted, rendered.lower())
     category = await classify(category_summary(extracted), extracted.taxonomy_root, model)
     return assemble(extracted, bundle, category), bundle
+
+
+async def parse_with_retry(model: str, messages: list) -> ExtractedProduct:
+    for attempt in range(PARSE_ATTEMPTS):
+        try:
+            return await ai.responses(model, messages, text_format=ExtractedProduct, **request_options(model))
+        except ValidationError as error:
+            logger.warning("Model output did not parse (attempt %d): %s", attempt + 1, str(error).splitlines()[1][:120])
+    raise ValueError("Model output did not parse as ExtractedProduct")
 
 
 SIZE_OPTION_RE = re.compile(r"size|length|width|capacity|volume|weight", re.I)

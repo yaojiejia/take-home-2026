@@ -3,7 +3,7 @@ import os
 DEFAULT_MODEL = os.environ.get("EXTRACTION_MODEL", "google/gemini-2.5-flash-lite")
 
 
-MAX_OUTPUT_TOKENS = 32_000
+MAX_OUTPUT_TOKENS = 60_000
 
 
 def request_options(model: str) -> dict:
