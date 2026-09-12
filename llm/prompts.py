@@ -14,8 +14,10 @@ Field guidance:
 - key_features: concise bullet points covering materials, specifications, dimensions, care,
   what is included, and notable benefits. One fact per bullet, in the page's own wording.
 - price and currency: the current selling price shown for the displayed configuration, and the
-  ISO 4217 currency code. If a higher original price is shown crossed out or as a "was" price,
-  put it in compare_at_price; otherwise compare_at_price is null.
+  ISO 4217 currency code. The VISIBLE TEXT is what the shopper sees; when structured data and
+  visible text disagree, the visible text wins. If a higher original price is shown crossed out or
+  as a "was" price, put it in compare_at_price; otherwise compare_at_price is null. If no price
+  appears anywhere in the page, set price to null instead of guessing.
 - colors: every colour option the page offers for this product, using the page's own colour names.
   Include sibling colourways that are presented as options even if they link to their own pages.
   If the page offers no colour choice and names no colour, leave the list empty; never infer one.

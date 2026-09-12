@@ -89,7 +89,7 @@ class ExtractedProduct(BaseModel):
     brand: str
     description: str
     key_features: list[str]
-    price: float
+    price: float | None
     currency: str
     compare_at_price: float | None
     colors: list[str]

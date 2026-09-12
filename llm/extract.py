@@ -20,17 +20,44 @@ from utils.preprocess import build_bundle, render_bundle
 
 async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
     bundle = build_bundle(html, source_url)
-    extracted = await ai.responses(
-        model,
-        [
-            {"role": "system", "content": EXTRACTION_PROMPT},
-            {"role": "user", "content": render_bundle(bundle)},
-        ],
-        text_format=ExtractedProduct,
-        **request_options(model),
-    )
+    rendered = render_bundle(bundle)
+    page_numbers = numbers_in(rendered)
+    messages = [
+        {"role": "system", "content": EXTRACTION_PROMPT},
+        {"role": "user", "content": rendered},
+    ]
+    extracted = await ai.responses(model, messages, text_format=ExtractedProduct, **request_options(model))
+    if not price_is_grounded(extracted.price, page_numbers):
+        messages.append({"role": "user", "content": price_correction(extracted.price)})
+        extracted = await ai.responses(model, messages, text_format=ExtractedProduct, **request_options(model))
+    if not price_is_grounded(extracted.price, page_numbers):
+        raise ValueError(f"No price grounded in the page (model answered {extracted.price})")
     category = await classify(category_summary(extracted), model)
     return assemble(extracted, bundle, category), bundle
+
+
+def numbers_in(text: str) -> set[float]:
+    found: set[float] = set()
+    for match in re.findall(r"\d[\d,]*(?:\.\d+)?", text):
+        try:
+            found.add(float(match.replace(",", "")))
+        except ValueError:
+            continue
+    return found
+
+
+def price_is_grounded(price: float | None, page_numbers: set[float]) -> bool:
+    if price is None:
+        return False
+    return any(abs(price - n) < 0.005 for n in page_numbers) or round(price * 100) in page_numbers
+
+
+def price_correction(price: float | None) -> str:
+    return (
+        f"The price you returned ({price}) does not appear anywhere in the page representation. "
+        "Re-extract everything, and set price only to a number that appears verbatim in the page, "
+        "preferring the VISIBLE TEXT section. If no price is present at all, set price to null."
+    )
 
 
 def category_summary(extracted: ExtractedProduct) -> str:
