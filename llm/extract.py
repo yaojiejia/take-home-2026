@@ -132,12 +132,30 @@ def category_summary(extracted: ExtractedProduct) -> str:
     )
 
 
+def relabel_colour_axis(variants: list[ExtractedVariant], colors: list[str]) -> None:
+    palette = {clean_text(c).lower() for c in colors if clean_text(c)}
+    values: dict[str, set[str]] = {}
+    for v in variants:
+        for o in v.options:
+            values.setdefault(o.name.strip(), set()).add(clean_text(o.value).lower())
+    if not palette or any(name.lower() in ("color", "colour") for name in values):
+        return
+    colour_axes = [name for name, seen in values.items() if seen and seen <= palette]
+    if len(colour_axes) != 1:
+        return
+    for v in variants:
+        for o in v.options:
+            if o.name.strip() == colour_axes[0]:
+                o.name = "Color"
+
+
 def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category) -> Product:
     by_id = {img.id: img for img in bundle.images}
     currency = extracted.currency.strip().upper()[:3] or "USD"
     compare_at = real_compare_at(extracted.price, extracted.compare_at_price)
     base_price = (extracted.price, compare_at)
     on_page, linked = split_by_page_identifier(extracted, page_identifiers(bundle.meta))
+    relabel_colour_axis(on_page, extracted.colors)
     variants = [
         Variant(
             sku=clean_optional(v.sku),
