@@ -7,7 +7,7 @@ async def hello_world():
     class HelloWorldResponse(BaseModel):
         message: str
     response = await ai.responses(
-        "gpt-5-nano",
+        "openai/gpt-5-nano",
         [{"role": "system", "content": "You are a helpful assistant that outputs everything in reverse."},
          {"role": "user", "content": "Say 'hello world'"}],
         text_format=HelloWorldResponse)
