@@ -21,6 +21,8 @@ MAX_STRING_CHARS = 400
 MAX_LONG_TEXT_CHARS = 4000
 JSON_BUDGET_CHARS = 48_000
 MIN_DROPPABLE_CHARS = 1_500
+MAX_SHRINK_PASSES = 20
+OVERSHOOT_FACTOR = 1.5
 
 
 def prune_blobs(blobs: list[tuple[str, object]], title_tokens: set[str]) -> dict[str, object]:
@@ -76,21 +78,30 @@ def node_score(node: object, key: str, title_tokens: set[str]) -> int:
 
 
 def shrink_to_budget(root: dict, title_tokens: set[str]) -> dict:
-    while True:
+    for _ in range(MAX_SHRINK_PASSES):
         candidates: list[tuple[float, int, list]] = []
         size, _ = measure(root, "", [], title_tokens, candidates)
-        if size <= JSON_BUDGET_CHARS or not candidates:
-            return root
+        excess = size - JSON_BUDGET_CHARS
+        if excess <= 0 or not candidates:
+            break
         chosen: list[list] = []
         for _, negative_size, path in sorted(candidates):
-            if any(path[: len(kept)] == kept for kept in chosen):
+            subtree_size = -negative_size
+            if subtree_size > excess * OVERSHOOT_FACTOR or overlaps(path, chosen):
                 continue
             chosen.append(path)
-            size += negative_size
-            if size <= JSON_BUDGET_CHARS:
+            excess -= subtree_size
+            if excess <= 0:
                 break
+        if not chosen:
+            chosen = [max(candidates, key=lambda c: c[1])[2]]
         for path in sorted(chosen, key=lambda p: [str(k) for k in p], reverse=True):
             delete_path(root, path)
+    return root
+
+
+def overlaps(path: list, chosen: list[list]) -> bool:
+    return any(path[: len(kept)] == kept or kept[: len(path)] == path for kept in chosen)
 
 
 def measure(node: object, key: str, path: list, title_tokens: set[str], out: list) -> tuple[int, int]:
