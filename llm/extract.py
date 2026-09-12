@@ -1,5 +1,6 @@
 import logging
 import re
+from urllib.parse import urlparse
 
 from pydantic import ValidationError
 
@@ -30,6 +31,8 @@ EXTRACTION_PROMPT = extraction_prompt(TOP_LEVEL)
 
 async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
     bundle = build_bundle(html, source_url)
+    if bundle.source_url and urlparse(bundle.source_url).path.strip("/") == "":
+        raise ValueError(f"Not a product page: the canonical URL is the site root ({bundle.source_url})")
     rendered = render_bundle(bundle)
     page_numbers = price_like_numbers(rendered)
     messages = [
