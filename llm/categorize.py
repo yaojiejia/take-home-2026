@@ -8,7 +8,7 @@ from models import Category, CategoryChoice
 
 TAXONOMY_FILE = Path(__file__).resolve().parent.parent / "categories.txt"
 SEPARATOR = " > "
-MAX_OPTION_CHARS = 16_000
+MAX_OPTION_CHARS = 33_000
 MAX_STEPS = 6
 MAX_REJECTED = 2
 

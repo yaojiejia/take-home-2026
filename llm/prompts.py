@@ -58,7 +58,9 @@ You are shown a product summary and an indented tree of candidate categories, ea
 numeric id. Indentation shows the parent; a child only applies when its parent applies too.
 Reply with the id of the single most specific category that genuinely describes what the
 product is (not what it is used with, or where it is sold). The retailer's own breadcrumb is
-only a hint. If no deeper category fits, reply with the id of the current category."""
+only a hint. If no deeper category fits, reply with the id of the current category. When the
+tree has no entry for the product's exact type or sport, stop at the nearest related type at
+the same level rather than descending into a more specific category that is wrong."""
 
 
 def extraction_prompt(taxonomy_roots: list[str]) -> str:
