@@ -139,6 +139,23 @@ def real_option(value: str) -> bool:
     return bool(value.strip()) and value.strip().lower() not in PLACEHOLDER_OPTIONS
 
 
+def lead_with_colour_images(urls: list[str], colour: str | None, images: list[ImageCandidate]) -> list[str]:
+    wanted = clean_text(colour or "").lower()
+    if not wanted:
+        return urls
+    heroes = [img.url for img in images if clean_text(img.context or "").lower() == wanted]
+    if not heroes or any(u in heroes for u in urls):
+        return urls
+    return [heroes[0]] + urls
+
+
+def colour_of(options: list) -> str | None:
+    for o in options:
+        if o.name.strip().lower() in ("color", "colour"):
+            return o.value
+    return None
+
+
 def relabel_colour_axis(variants: list[ExtractedVariant], colors: list[str]) -> None:
     palette = {clean_text(c).lower() for c in colors if clean_text(c)}
     values: dict[str, set[str]] = {}
@@ -170,7 +187,7 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
             options=[VariantOption(name=o.name.strip(), value=o.value.strip()) for o in v.options if real_option(o.value)],
             price=variant_price(v.price, v.compare_at_price, currency, base_price),
             available=v.available,
-            image_urls=resolve_images(v.image_ids, by_id),
+            image_urls=lead_with_colour_images(resolve_images(v.image_ids, by_id), colour_of(v.options), bundle.images),
         )
         for v in on_page
     ]
@@ -187,7 +204,7 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
                 options=[VariantOption(name="Color", value=color)],
                 price=variant_price(c.price, c.compare_at_price, currency, base_price),
                 available=c.available,
-                image_urls=resolve_images(c.image_ids, by_id),
+                image_urls=lead_with_colour_images(resolve_images(c.image_ids, by_id), color, bundle.images),
             )
         )
     return Product(
