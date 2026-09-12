@@ -2,20 +2,15 @@ import difflib
 from collections import defaultdict
 from pathlib import Path
 
-import ai
+from llm import ai
+from llm.prompts import CATEGORY_PROMPT
 from models import Category, CategoryChoice
 
-TAXONOMY_FILE = Path(__file__).parent / "categories.txt"
+TAXONOMY_FILE = Path(__file__).resolve().parent.parent / "categories.txt"
 SEPARATOR = " > "
 MAX_OPTION_CHARS = 50_000
-
-SYSTEM_PROMPT = """You classify retail products into Google's Product Taxonomy.
-You are shown a product summary and a list of candidate categories. Reply with exactly one
-category string copied verbatim from the candidate list. The retailer's own breadcrumb is only
-a hint; it is never a valid answer unless it also appears in the candidate list. Choose the most
-specific candidate that genuinely describes what the product is (not what it is used with, or
-where it is sold). If no candidate is more specific than the current category, reply with the
-current category."""
+MAX_STEPS = 6
+SAMPLING = {"temperature": 0}
 
 
 def load_taxonomy() -> tuple[list[str], dict[str, list[str]]]:
@@ -37,17 +32,18 @@ PATH_SET = set(PATHS)
 
 async def classify(summary: str, model: str) -> Category:
     node = ""
-    for _ in range(6):
+    for _ in range(MAX_STEPS):
         options, complete = candidate_options(node)
         if not options:
             break
         choice = await ai.responses(
             model,
             [
-                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "system", "content": CATEGORY_PROMPT},
                 {"role": "user", "content": build_prompt(summary, node, options)},
             ],
             text_format=CategoryChoice,
+            **SAMPLING,
         )
         picked = resolve(choice.category, options + ([node] if node else []))
         if picked is None:
@@ -81,10 +77,9 @@ def descendants(node: str) -> list[str]:
 
 
 def build_prompt(summary: str, node: str, options: list[str]) -> str:
-    current = node or "(none yet)"
     return (
         f"PRODUCT:\n{summary}\n\n"
-        f"CURRENT CATEGORY: {current}\n\n"
+        f"CURRENT CATEGORY: {node or '(none yet)'}\n\n"
         f"CANDIDATE CATEGORIES:\n" + "\n".join(options)
     )
 

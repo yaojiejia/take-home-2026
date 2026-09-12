@@ -5,8 +5,8 @@ import logging
 import re
 from pathlib import Path
 
-import ai
-from extract import DEFAULT_MODEL, extract_product
+from llm import ai
+from llm.extract import DEFAULT_MODEL, extract_product
 from models import ExtractionResult
 
 logger = logging.getLogger("ingest")
@@ -24,13 +24,7 @@ async def ingest(input_dir: Path, output_file: Path, model: str, concurrency: in
                 logger.exception("Failed to extract %s", path.name)
                 return None
         logger.info("Extracted %s -> %s (%d images, %d variants)", path.name, product.name, len(product.image_urls), len(product.variants))
-        return ExtractionResult(
-            id=slugify(product.name if product.name.lower().startswith(product.brand.lower()) else f"{product.brand} {product.name}") or path.stem,
-            source_file=path.name,
-            source_url=None,
-            model=model,
-            product=product,
-        )
+        return ExtractionResult(id=product_id(product.brand, product.name) or path.stem, source_file=path.name, model=model, product=product)
 
     results = [r for r in await asyncio.gather(*(run(p) for p in files)) if r is not None]
     output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -43,8 +37,9 @@ async def ingest(input_dir: Path, output_file: Path, model: str, concurrency: in
     )
 
 
-def slugify(text: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:80]
+def product_id(brand: str, name: str) -> str:
+    label = name if name.lower().startswith(brand.lower()) else f"{brand} {name}"
+    return re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")[:80]
 
 
 if __name__ == "__main__":
