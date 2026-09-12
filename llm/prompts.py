@@ -27,12 +27,16 @@ Field guidance:
   already points at its best available resolution.
 - video_id: the numeric id of the primary product video from the VIDEO CANDIDATES list, if that
   list contains a video of this product; otherwise null.
-- variants: every purchasable configuration the page data actually lists. A variant is one
+- variants: the purchasable configurations a shopper can select on this page. A variant is one
   discrete selection such as a colour, a size, or a colour and size combination. Give each variant
   the options that define it, naming each option the way the page does ("Color", "Size", "Length",
-  "Fit", "Material", and so on) and using the page's own values. Only use SKU identifiers if
-  present, its own price only if it differs from the product price, availability if known, and
-  the ids of images specific to that variant. Do not invent combinations the page does not list.
+  "Fit", "Material", and so on) and using the page's own values, plus its SKU if present, its own
+  price only if it differs from the product price, availability if known, and the ids of images
+  specific to that variant. Sibling colourways that link to their own product pages are colour
+  options, not full size matrices: list them in colors, and add at most one variant each, without
+  sizes. Only the displayed configuration gets its full size list. Put variant image ids only on
+  variants that introduce a different colour or appearance, never on every size. Do not invent
+  combinations the page does not list.
 - category_hints: breadcrumb entries, product type labels, or similar taxonomy clues from the page,
   most general first.
 

@@ -33,7 +33,7 @@ RESIZE_QUERY_KEYS = {
     "crop", "wid", "hei", "qlt", "op_sharpen", "resmode", "impolicy", "imdensity",
 }
 SOURCE_RANK = {"meta": 0, "json-ld": 1, "img": 2, "embedded": 3, "page": 4}
-MAX_IMAGE_CANDIDATES = 200
+MAX_IMAGE_CANDIDATES = 120
 MAX_VIDEO_CANDIDATES = 10
 MIN_IMAGE_PIXELS = 64
 

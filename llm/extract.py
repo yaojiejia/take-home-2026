@@ -48,7 +48,8 @@ def category_summary(extracted: ExtractedProduct) -> str:
 def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category) -> Product:
     by_id = {img.id: img for img in bundle.images}
     currency = extracted.currency.strip().upper()[:3] or "USD"
-    base_price = (extracted.price, extracted.compare_at_price)
+    compare_at = real_compare_at(extracted.price, extracted.compare_at_price)
+    base_price = (extracted.price, compare_at)
     variants = [
         Variant(
             sku=clean_optional(v.sku),
@@ -62,7 +63,7 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
     ]
     return Product(
         name=clean_text(extracted.name),
-        price=Price(price=extracted.price, currency=currency, compare_at_price=extracted.compare_at_price),
+        price=Price(price=extracted.price, currency=currency, compare_at_price=compare_at),
         description=clean_text(extracted.description),
         key_features=[clean_text(f) for f in extracted.key_features if clean_text(f)],
         image_urls=resolve_images(extracted.image_ids, by_id),
@@ -75,9 +76,16 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
 
 
 def variant_price(price: float | None, compare_at: float | None, currency: str, base: tuple[float, float | None]) -> Price | None:
-    if price is None or (price == base[0] and compare_at in (None, base[1])):
+    if price is None:
+        return None
+    compare_at = real_compare_at(price, compare_at)
+    if price == base[0] and compare_at in (None, base[1]):
         return None
     return Price(price=price, currency=currency, compare_at_price=compare_at)
+
+
+def real_compare_at(price: float, compare_at: float | None) -> float | None:
+    return compare_at if compare_at is not None and compare_at > price else None
 
 
 def resolve_video(video_id: str | None, videos: list[str]) -> str | None:
