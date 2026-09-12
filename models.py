@@ -43,3 +43,70 @@ class Product(BaseModel):
     brand: str
     colors: list[str]
     variants: list[Any] # TODO (@dev): Define variant model
+
+class ImageCandidate(BaseModel):
+    id: int
+    url: str
+    source: str
+    context: str = ""
+
+
+class PageBundle(BaseModel):
+    source_url: str | None = None
+    meta: dict[str, str]
+    json_ld: list[dict]
+    embedded_json: dict[str, Any]
+    visible_text: str
+    images: list[ImageCandidate]
+    videos: list[str]
+
+
+class VariantOption(BaseModel):
+    name: str
+    value: str
+
+
+class Variant(BaseModel):
+    sku: str | None = None
+    title: str | None = None
+    options: list[VariantOption]
+    price: Price | None = None
+    available: bool | None = None
+    image_urls: list[str] = []
+
+
+class ExtractedVariant(BaseModel):
+    sku: str | None
+    options: list[VariantOption]
+    price: float | None
+    compare_at_price: float | None
+    available: bool | None
+    image_ids: list[int]
+
+
+class ExtractedProduct(BaseModel):
+    name: str
+    brand: str
+    description: str
+    key_features: list[str]
+    price: float
+    currency: str
+    compare_at_price: float | None
+    colors: list[str]
+    image_ids: list[int]
+    video_id: str | None
+    variants: list[ExtractedVariant]
+    category_hints: list[str]
+
+
+class CategoryChoice(BaseModel):
+    reasoning: str
+    category: str
+
+
+class ExtractionResult(BaseModel):
+    id: str
+    source_file: str
+    source_url: str | None = None
+    model: str
+    product: Product
