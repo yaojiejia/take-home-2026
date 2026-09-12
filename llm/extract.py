@@ -132,6 +132,13 @@ def category_summary(extracted: ExtractedProduct) -> str:
     )
 
 
+PLACEHOLDER_OPTIONS = {"default title", "default", "n/a", "none", "one size fits all"}
+
+
+def real_option(value: str) -> bool:
+    return bool(value.strip()) and value.strip().lower() not in PLACEHOLDER_OPTIONS
+
+
 def relabel_colour_axis(variants: list[ExtractedVariant], colors: list[str]) -> None:
     palette = {clean_text(c).lower() for c in colors if clean_text(c)}
     values: dict[str, set[str]] = {}
@@ -159,8 +166,8 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
     variants = [
         Variant(
             sku=clean_optional(v.sku),
-            title=" / ".join(o.value for o in v.options) or None,
-            options=[VariantOption(name=o.name.strip(), value=o.value.strip()) for o in v.options if o.value.strip()],
+            title=" / ".join(o.value for o in v.options if real_option(o.value)) or None,
+            options=[VariantOption(name=o.name.strip(), value=o.value.strip()) for o in v.options if real_option(o.value)],
             price=variant_price(v.price, v.compare_at_price, currency, base_price),
             available=v.available,
             image_urls=resolve_images(v.image_ids, by_id),
