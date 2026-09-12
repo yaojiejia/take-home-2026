@@ -10,6 +10,7 @@ TAXONOMY_FILE = Path(__file__).resolve().parent.parent / "categories.txt"
 SEPARATOR = " > "
 MAX_OPTION_CHARS = 50_000
 MAX_STEPS = 6
+MAX_REJECTED = 2
 SAMPLING = {"temperature": 0}
 
 
@@ -32,6 +33,7 @@ PATH_SET = set(PATHS)
 
 async def classify(summary: str, model: str) -> Category:
     node = ""
+    rejected: list[str] = []
     for _ in range(MAX_STEPS):
         options, complete = candidate_options(node)
         if not options:
@@ -40,21 +42,25 @@ async def classify(summary: str, model: str) -> Category:
             model,
             [
                 {"role": "system", "content": CATEGORY_PROMPT},
-                {"role": "user", "content": build_prompt(summary, node, options)},
+                {"role": "user", "content": build_prompt(summary, node, options, rejected)},
             ],
             text_format=CategoryChoice,
             **SAMPLING,
         )
         picked = resolve(choice.category, options + ([node] if node else []))
         if picked is None:
+            rejected.append(choice.category)
+            if len(rejected) >= MAX_REJECTED:
+                break
             continue
         if picked == node:
             break
         node = picked
+        rejected = []
         if complete or not CHILDREN.get(node):
             break
     if not node:
-        raise ValueError("Could not map the product to a taxonomy category")
+        raise ValueError(f"Could not map the product to a taxonomy category (answers: {rejected})")
     return Category(name=node)
 
 
@@ -76,11 +82,14 @@ def descendants(node: str) -> list[str]:
     return [p for p in PATHS if p.startswith(prefix)]
 
 
-def build_prompt(summary: str, node: str, options: list[str]) -> str:
+def build_prompt(summary: str, node: str, options: list[str], rejected: list[str]) -> str:
+    warning = ""
+    if rejected:
+        warning = "\n\nYour previous answer was not in the candidate list and was rejected: " + "; ".join(rejected) + "\nCopy one candidate exactly."
     return (
         f"PRODUCT:\n{summary}\n\n"
         f"CURRENT CATEGORY: {node or '(none yet)'}\n\n"
-        f"CANDIDATE CATEGORIES:\n" + "\n".join(options)
+        f"CANDIDATE CATEGORIES:\n" + "\n".join(options) + warning
     )
 
 
