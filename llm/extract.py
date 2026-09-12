@@ -20,7 +20,7 @@ DEFAULT_MODEL = os.environ.get("EXTRACTION_MODEL", "google/gemini-2.5-flash-lite
 SAMPLING = {"temperature": 0}
 
 
-async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> Product:
+async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
     bundle = build_bundle(html, source_url)
     extracted = await ai.responses(
         model,
@@ -32,7 +32,7 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
         **SAMPLING,
     )
     category = await classify(category_summary(extracted), model)
-    return assemble(extracted, bundle, category)
+    return assemble(extracted, bundle, category), bundle
 
 
 def category_summary(extracted: ExtractedProduct) -> str:

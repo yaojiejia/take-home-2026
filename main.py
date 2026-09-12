@@ -19,12 +19,18 @@ async def ingest(input_dir: Path, output_file: Path, model: str, concurrency: in
     async def run(path: Path) -> ExtractionResult | None:
         async with semaphore:
             try:
-                product = await extract_product(path.read_text(encoding="utf-8", errors="ignore"), model=model)
+                product, bundle = await extract_product(path.read_text(encoding="utf-8", errors="ignore"), model=model)
             except Exception:
                 logger.exception("Failed to extract %s", path.name)
                 return None
         logger.info("Extracted %s -> %s (%d images, %d variants)", path.name, product.name, len(product.image_urls), len(product.variants))
-        return ExtractionResult(id=product_id(product.brand, product.name) or path.stem, source_file=path.name, model=model, product=product)
+        return ExtractionResult(
+            id=product_id(product.brand, product.name) or path.stem,
+            source_file=path.name,
+            source_url=bundle.source_url,
+            model=model,
+            product=product,
+        )
 
     results = [r for r in await asyncio.gather(*(run(p) for p in files)) if r is not None]
     output_file.parent.mkdir(parents=True, exist_ok=True)
