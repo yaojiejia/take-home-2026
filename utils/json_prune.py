@@ -81,8 +81,16 @@ def shrink_to_budget(root: dict, title_tokens: set[str]) -> dict:
         size, _ = measure(root, "", [], title_tokens, candidates)
         if size <= JSON_BUDGET_CHARS or not candidates:
             return root
-        _, _, path = min(candidates)
-        delete_path(root, path)
+        chosen: list[list] = []
+        for _, negative_size, path in sorted(candidates):
+            if any(path[: len(kept)] == kept for kept in chosen):
+                continue
+            chosen.append(path)
+            size += negative_size
+            if size <= JSON_BUDGET_CHARS:
+                break
+        for path in sorted(chosen, key=lambda p: [str(k) for k in p], reverse=True):
+            delete_path(root, path)
 
 
 def measure(node: object, key: str, path: list, title_tokens: set[str], out: list) -> tuple[int, int]:
