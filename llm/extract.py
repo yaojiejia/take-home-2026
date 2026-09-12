@@ -6,7 +6,9 @@ from llm.prompts import EXTRACTION_PROMPT
 from llm.settings import DEFAULT_MODEL, request_options
 from models import (
     Category,
+    ExtractedColorway,
     ExtractedProduct,
+    ExtractedVariant,
     ImageCandidate,
     PageBundle,
     Price,
@@ -14,6 +16,7 @@ from models import (
     Variant,
     VariantOption,
 )
+from utils.html import page_identifiers
 from utils.preprocess import build_bundle, render_bundle
 
 
@@ -32,8 +35,38 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
         extracted = await ai.responses(model, messages, text_format=ExtractedProduct, **request_options(model))
     if not price_is_grounded(extracted.price, page_numbers):
         raise ValueError(f"No price grounded in the page (model answered {extracted.price})")
+    drop_ungrounded_sizes(extracted, rendered.lower())
     category = await classify(category_summary(extracted), model)
     return assemble(extracted, bundle, category), bundle
+
+
+SIZE_OPTION_RE = re.compile(r"size|length|width|capacity|volume|weight", re.I)
+SIZE_WINDOW = 4000
+
+
+def drop_ungrounded_sizes(extracted: ExtractedProduct, page_text: str) -> None:
+    seen: set[tuple] = set()
+    kept: list[ExtractedVariant] = []
+    for variant in extracted.variants:
+        sku = (variant.sku or "").strip().lower()
+        if sku and sku in page_text:
+            variant.options = [o for o in variant.options if not SIZE_OPTION_RE.search(o.name) or near_sku(sku, o.value, page_text)]
+        key = (sku, tuple((o.name.lower(), o.value.lower()) for o in variant.options))
+        if key not in seen:
+            seen.add(key)
+            kept.append(variant)
+    extracted.variants = kept
+
+
+def near_sku(sku: str, value: str, page_text: str) -> bool:
+    needle = re.compile(r"(?<![a-z0-9])" + re.escape(value.strip().lower()) + r"(?![a-z0-9])")
+    start = page_text.find(sku)
+    while start != -1:
+        window = page_text[max(0, start - SIZE_WINDOW): start + len(sku) + SIZE_WINDOW]
+        if needle.search(window):
+            return True
+        start = page_text.find(sku, start + 1)
+    return False
 
 
 PRICE_PATTERNS = (
@@ -85,6 +118,7 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
     currency = extracted.currency.strip().upper()[:3] or "USD"
     compare_at = real_compare_at(extracted.price, extracted.compare_at_price)
     base_price = (extracted.price, compare_at)
+    on_page, linked = split_by_page_identifier(extracted, page_identifiers(bundle.meta))
     variants = [
         Variant(
             sku=clean_optional(v.sku),
@@ -94,20 +128,53 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
             available=v.available,
             image_urls=resolve_images(v.image_ids, by_id),
         )
-        for v in extracted.variants
+        for v in on_page
     ]
+    covered = {clean_text(o.value).lower() for v in on_page for o in v.options if o.name.lower() in ("color", "colour")}
+    for c in linked:
+        color = clean_text(c.color)
+        if not color or color.lower() in covered:
+            continue
+        covered.add(color.lower())
+        variants.append(
+            Variant(
+                sku=clean_optional(c.sku),
+                title=color,
+                options=[VariantOption(name="Color", value=color)],
+                price=variant_price(c.price, c.compare_at_price, currency, base_price),
+                available=c.available,
+                image_urls=resolve_images(c.image_ids, by_id),
+            )
+        )
     return Product(
         name=clean_text(extracted.name),
         price=Price(price=extracted.price, currency=currency, compare_at_price=compare_at),
         description=clean_text(extracted.description),
         key_features=[clean_text(f) for f in extracted.key_features if clean_text(f)],
-        image_urls=resolve_images(extracted.image_ids, by_id),
+        image_urls=resolve_images(extracted.gallery_image_ids, by_id),
         video_url=resolve_video(extracted.video_id, bundle.videos),
         category=category,
         brand=clean_text(extracted.brand),
         colors=[clean_text(c) for c in extracted.colors if clean_text(c)],
         variants=variants,
     )
+
+
+def split_by_page_identifier(extracted: ExtractedProduct, identifiers: set[str]) -> tuple[list[ExtractedVariant], list[ExtractedColorway]]:
+    def pinned(variant: ExtractedVariant) -> bool:
+        return any(identifier in (variant.sku or "").lower() for identifier in identifiers)
+
+    with_sku = [v for v in extracted.variants if v.sku]
+    if not identifiers or not any(pinned(v) for v in with_sku) or all(pinned(v) for v in with_sku):
+        return extracted.variants, extracted.linked_colorways
+    on_page = [v for v in extracted.variants if not v.sku or pinned(v)]
+    collapsed: dict[str, ExtractedColorway] = {}
+    for v in extracted.variants:
+        if v.sku and not pinned(v):
+            color = next((o.value for o in v.options if o.name.lower() in ("color", "colour")), v.sku)
+            entry = collapsed.setdefault(color, ExtractedColorway(color=color, sku=v.sku, price=v.price, compare_at_price=v.compare_at_price, available=None, image_ids=[]))
+            entry.image_ids = entry.image_ids or v.image_ids
+    return on_page, list(collapsed.values()) + extracted.linked_colorways
 
 
 def variant_price(price: float | None, compare_at: float | None, currency: str, base: tuple[float, float | None]) -> Price | None:

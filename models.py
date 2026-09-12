@@ -84,6 +84,15 @@ class ExtractedVariant(BaseModel):
     image_ids: list[int]
 
 
+class ExtractedColorway(BaseModel):
+    color: str
+    sku: str | None
+    price: float | None
+    compare_at_price: float | None
+    available: bool | None
+    image_ids: list[int]
+
+
 class ExtractedProduct(BaseModel):
     name: str
     brand: str
@@ -93,9 +102,10 @@ class ExtractedProduct(BaseModel):
     currency: str
     compare_at_price: float | None
     colors: list[str]
-    image_ids: list[int]
+    gallery_image_ids: list[int]
     video_id: str | None
     variants: list[ExtractedVariant]
+    linked_colorways: list[ExtractedColorway]
     category_hints: list[str]
 
 

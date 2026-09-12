@@ -21,24 +21,29 @@ Field guidance:
 - colors: every colour option the page offers for this product, using the page's own colour names.
   Include sibling colourways that are presented as options even if they link to their own pages.
   If the page offers no colour choice and names no colour, leave the list empty; never infer one.
-- image_ids: the product gallery as displayed for the currently selected configuration, in
-  display order. A gallery is normally a handful of images; if you are selecting dozens, you are
-  including other configurations' images, which belong on their variants instead. Use the candidate
-  context (colour names, style codes, JSON paths) to tell configurations apart. Exclude logos, icons,
-  promotional banners, swatch chips, size charts, and pictures of other products. Every candidate
-  already points at its best available resolution.
+- gallery_image_ids: the image gallery shown for the displayed configuration, in display order.
+  The displayed configuration is the colour or style whose code appears in the page URL and
+  metadata, or that the page data marks as selected. A gallery is normally a handful of images.
+  Images of other colourways never belong here. Exclude logos, icons, promotional banners, swatch
+  chips, size charts, and pictures of other products. Every candidate already points at its best
+  available resolution.
 - video_id: the numeric id of the primary product video from the VIDEO CANDIDATES list, if that
   list contains a video of this product; otherwise null.
-- variants: the purchasable configurations a shopper can select on this page. A variant is one
-  discrete selection such as a colour, a size, or a colour and size combination. Give each variant
-  the options that define it, naming each option the way the page does ("Color", "Size", "Length",
-  "Fit", "Material", and so on) and using the page's own values, plus its SKU if present, its own
-  price only if it differs from the product price, availability if known, and the ids of images
-  specific to that variant. Sibling colourways that link to their own product pages are colour
-  options, not full size matrices: list them in colors, and add at most one variant each, without
-  sizes. Only the displayed configuration gets its full size list. Put variant image ids only on
-  variants that introduce a different colour or appearance, never on every size. Do not invent
+- variants: every purchasable option combination a shopper can select on this page, one entry
+  per combination. If the page offers colour and size choices together, list each colour and
+  size pair the page data provides. If the page shows one colourway with a size list, list each
+  size. Name each option the way the page does ("Color", "Size", "Length", "Fit", "Material",
+  and so on) and use the page's own values. Every option value must appear somewhere in the page
+  representation. If the data lists SKUs without size labels, do not invent sizes: use whatever
+  dimension the data does provide, or emit one variant per SKU without a size option. Give each
+  variant its SKU if present, its own price only if it differs from the product price,
+  availability if known, and the ids of images that are specific to it. Do not invent
   combinations the page does not list.
+- linked_colorways: colourways that are presented as options but link to their own product
+  pages, meaning their sizes are not selectable here. One entry per colourway with its colour
+  name, SKU or style code if present, price if shown, availability if known, and the ids of its
+  images. Never list a linked colourway's sizes anywhere. Leave this empty when colour is a
+  same-page option already covered by variants.
 - category_hints: breadcrumb entries, product type labels, or similar taxonomy clues from the page,
   most general first.
 
