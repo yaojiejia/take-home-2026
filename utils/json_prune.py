@@ -1,3 +1,4 @@
+import re
 import json
 
 from utils.html import tokenize
@@ -25,13 +26,14 @@ JSON_LD_BUDGET_CHARS = 30_000
 MIN_DROPPABLE_CHARS = 1_500
 MAX_SHRINK_PASSES = 60
 OVERSHOOT_FACTOR = 1.5
+DENSITY_BAND = 3.0
 MAX_IDENTIFIER_HOLDERS = 20
 
 
 def prune_blobs(blobs: list[tuple[str, object]], title_tokens: set[str], identifiers: set[str], budget: int = MAX_JSON_BUDGET_CHARS) -> dict[str, object]:
     pruned: dict[str, object] = {}
     for label, blob in blobs:
-        kept = prune_node(blob, "", title_tokens)
+        kept = prune_node(blob, "", title_tokens, identifiers)
         if kept is not None:
             pruned[unique_label(label, pruned)] = kept
     return shrink_to_budget(pruned, title_tokens, identifiers, budget)
@@ -42,19 +44,17 @@ def embedded_budget(fixed_chars: int, total_chars: int) -> int:
 
 
 def prune_json_ld(items: list[dict], title_tokens: set[str], identifiers: set[str]) -> list[dict]:
-    kept = prune_node(items, "json-ld", title_tokens) or []
+    kept = prune_node(items, "json-ld", title_tokens, identifiers) or []
     return shrink_to_budget({"json-ld": kept}, title_tokens, identifiers, JSON_LD_BUDGET_CHARS).get("json-ld", [])
 
 
-def prune_node(node: object, key: str, title_tokens: set[str]) -> object | None:
+def prune_node(node: object, key: str, title_tokens: set[str], identifiers: set[str]) -> object | None:
+    if isinstance(node, (dict, list)) and is_noise_key(key) and not names_identifier(node, identifiers):
+        return None
     if isinstance(node, dict):
-        if is_noise_key(key):
-            return None
         out: dict[str, object] = {}
         for child_key, child in node.items():
-            if is_noise_key(child_key):
-                continue
-            kept = prune_node(child, child_key, title_tokens)
+            kept = prune_node(child, child_key, title_tokens, identifiers)
             if kept is not None:
                 out[child_key] = kept
         if not out:
@@ -63,7 +63,7 @@ def prune_node(node: object, key: str, title_tokens: set[str]) -> object | None:
             return None
         return out
     if isinstance(node, list):
-        items = [prune_node(child, key, title_tokens) for child in node[:MAX_LIST_ITEMS]]
+        items = [prune_node(child, key, title_tokens, identifiers) for child in node[:MAX_LIST_ITEMS]]
         items = [x for x in items if x is not None]
         return items or None
     if isinstance(node, str):
@@ -105,15 +105,21 @@ def shrink_to_budget(root: dict, title_tokens: set[str], identifiers: set[str], 
         expendable = lowest < max(c[3] for c in candidates)
         tier = [c for c in eligible if c[3] == lowest]
         ordered = sorted(tier, key=lambda c: c[1]) if expendable else sorted(tier, key=lambda c: (c[0], -c[1]))
+        band = ordered[0][0] * DENSITY_BAND
         chosen: list[tuple[list, int]] = []
-        for _, negative_size, path, _ in ordered:
+        for density, negative_size, path, _ in ordered:
             subtree_size = -negative_size
-            if overlaps(path, [c[0] for c in chosen]):
+            if not expendable and chosen and density > band:
+                break
+            if any(is_prefix(c[0], path) for c in chosen):
                 continue
-            if not expendable and subtree_size > excess * OVERSHOOT_FACTOR and not isinstance(node_at(root, path), list):
+            inside = [c for c in chosen if is_prefix(path, c[0])]
+            freed = excess + sum(needed for _, needed in inside)
+            if not expendable and subtree_size > freed * OVERSHOOT_FACTOR and not isinstance(node_at(root, path), list):
                 continue
-            chosen.append((path, min(subtree_size, excess)))
-            excess -= min(subtree_size, excess)
+            chosen = [c for c in chosen if c not in inside]
+            excess = freed - min(subtree_size, freed)
+            chosen.append((path, min(subtree_size, freed)))
             if excess <= 0:
                 break
         if not chosen:
@@ -170,8 +176,8 @@ def deletion_order(path: list) -> list[tuple[int, object]]:
     return [(1, key) if isinstance(key, int) else (0, key) for key in path]
 
 
-def overlaps(path: list, chosen: list[list]) -> bool:
-    return any(path[: len(kept)] == kept or kept[: len(path)] == path for kept in chosen)
+def is_prefix(prefix: list, path: list) -> bool:
+    return len(prefix) <= len(path) and path[: len(prefix)] == prefix
 
 
 def mark_identifiers(node: object, identifiers: set[str], marks: dict[int, tuple[set[str], set[str]]]) -> set[str]:
@@ -292,6 +298,13 @@ def unique_label(label: str, existing: dict) -> str:
 def is_signal_key(key: str) -> bool:
     lowered = key.lower()
     return any(part in lowered for part in SIGNAL_KEY_PARTS)
+
+
+def names_identifier(node: object, identifiers: set[str]) -> bool:
+    if not identifiers:
+        return False
+    text = json.dumps(node, ensure_ascii=False).lower()
+    return any(re.search(rf"(?<![a-z0-9]){re.escape(ident)}(?![a-z0-9])", text) for ident in identifiers)
 
 
 def is_noise_key(key: str) -> bool:
