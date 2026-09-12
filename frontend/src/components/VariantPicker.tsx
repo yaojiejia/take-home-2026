@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react"
 import { formatMoney } from "@/api"
-import { Badge } from "@/components/ui/badge"
 import type { Variant } from "@/types"
 
 type Props = {
@@ -56,14 +55,14 @@ export function VariantPicker({ variants, onSelect }: Props) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {axes.map((axis) => (
         <div key={axis.name} className="space-y-2">
-          <div className="text-sm font-medium">
+          <div className="text-[11px] uppercase">
             {axis.name}
-            {selection[axis.name] && <span className="ml-2 font-normal text-muted-foreground">{selection[axis.name]}</span>}
+            {selection[axis.name] && <span className="ml-2 text-neutral-500">{selection[axis.name]}</span>}
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-[3px]">
             {axis.values.map((value) => {
               const others = { ...selection }
               delete others[axis.name]
@@ -78,10 +77,10 @@ export function VariantPicker({ variants, onSelect }: Props) {
                   disabled={!offered}
                   onClick={() => pick(axis.name, value)}
                   className={[
-                    "rounded-md border px-3 py-1.5 text-sm transition-colors",
-                    active ? "border-foreground bg-foreground text-background" : "hover:border-foreground",
-                    !offered ? "cursor-not-allowed opacity-30" : "",
-                    offered && !inStock ? "text-muted-foreground line-through" : "",
+                    "min-w-10 border px-3 py-2 text-[11px] uppercase transition-colors",
+                    active ? "border-black bg-black text-white" : "border-neutral-300 hover:border-black",
+                    !offered ? "cursor-not-allowed text-neutral-300" : "",
+                    offered && !inStock ? "text-neutral-400 line-through" : "",
                   ].join(" ")}
                 >
                   {value}
@@ -91,16 +90,16 @@ export function VariantPicker({ variants, onSelect }: Props) {
           </div>
         </div>
       ))}
-      <div className="text-sm text-muted-foreground">
+      <div className="text-[11px] uppercase text-neutral-500">
         {chosen ? (
-          <span className="flex flex-wrap items-center gap-2">
-            {chosen.sku && <span>SKU {chosen.sku}</span>}
-            {chosen.price && <span>{formatMoney(chosen.price.price, chosen.price.currency)}</span>}
+          <span className="flex flex-wrap items-center gap-x-3">
+            {chosen.sku && <span>Ref. {chosen.sku}</span>}
+            {chosen.price && <span className="text-black">{formatMoney(chosen.price.price, chosen.price.currency)}</span>}
             <Availability available={chosen.available} />
           </span>
         ) : (
           <span>
-            {candidates.length} of {variants.length} variants match
+            {candidates.length} of {variants.length} combinations
           </span>
         )}
       </div>
@@ -112,21 +111,21 @@ function VariantList({ variants }: { variants: Variant[] }) {
   if (variants.length === 1) {
     const only = variants[0]
     return (
-      <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-        {only.sku && <span>SKU {only.sku}</span>}
-        {only.price && <span>{formatMoney(only.price.price, only.price.currency)}</span>}
+      <div className="flex flex-wrap items-center gap-x-3 text-[11px] uppercase text-neutral-500">
+        {only.sku && <span>Ref. {only.sku}</span>}
+        {only.price && <span className="text-black">{formatMoney(only.price.price, only.price.currency)}</span>}
         <Availability available={only.available} />
       </div>
     )
   }
   return (
-    <ul className="divide-y rounded-md border text-sm">
+    <ul className="divide-y divide-neutral-200 border-y border-neutral-200 text-[11px] uppercase">
       {variants.map((variant, i) => (
-        <li key={`${variant.sku ?? ""}-${i}`} className="flex items-center justify-between gap-3 px-3 py-2">
+        <li key={`${variant.sku ?? ""}-${i}`} className="flex items-center justify-between gap-3 py-2">
           <span className="truncate">{variant.title ?? variant.sku ?? `Variant ${i + 1}`}</span>
-          <span className="flex shrink-0 items-center gap-2 text-muted-foreground">
-            {variant.sku && variant.title && <span className="text-xs">{variant.sku}</span>}
-            {variant.price && <span>{formatMoney(variant.price.price, variant.price.currency)}</span>}
+          <span className="flex shrink-0 items-center gap-3 text-neutral-500">
+            {variant.sku && variant.title && <span>Ref. {variant.sku}</span>}
+            {variant.price && <span className="text-black">{formatMoney(variant.price.price, variant.price.currency)}</span>}
             <Availability available={variant.available} />
           </span>
         </li>
@@ -139,5 +138,5 @@ function Availability({ available }: { available: boolean | null }) {
   if (available === null) {
     return null
   }
-  return <Badge variant={available ? "secondary" : "outline"}>{available ? "In stock" : "Sold out"}</Badge>
+  return <span className={available ? "text-black" : "text-neutral-400"}>{available ? "In stock" : "Sold out"}</span>
 }

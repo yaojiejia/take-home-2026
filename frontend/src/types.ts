@@ -37,6 +37,7 @@ export type CatalogItem = {
   brand: string
   price: Price
   image_url: string | null
+  hover_image_url: string | null
   category: string
   color_count: number
   variant_count: number

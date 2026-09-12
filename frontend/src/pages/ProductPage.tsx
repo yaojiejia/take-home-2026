@@ -4,9 +4,6 @@ import { fetchProduct } from "@/api"
 import { Gallery } from "@/components/Gallery"
 import { PriceTag } from "@/components/PriceTag"
 import { VariantPicker } from "@/components/VariantPicker"
-import { Badge } from "@/components/ui/badge"
-import { buttonVariants } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
 import type { ProductRecord, Variant } from "@/types"
 
 function groupByAxes(variants: Variant[]): Variant[][] {
@@ -34,10 +31,10 @@ export function ProductPage() {
   }, [id])
 
   if (error) {
-    return <p className="text-destructive">Could not load this product: {error}</p>
+    return <p className="text-[11px] uppercase text-red-600">Could not load this product: {error}</p>
   }
   if (record === null) {
-    return <p className="text-muted-foreground">Loading…</p>
+    return <p className="text-[11px] uppercase text-neutral-500">Loading</p>
   }
 
   const product = record.product
@@ -46,97 +43,100 @@ export function ProductPage() {
   const crumbs = product.category.name.split(" > ")
   const paragraphs = product.description.split(/\n+/).filter((p) => p.trim())
   const variantGroups = groupByAxes(product.variants)
+  const colourIsSelectable = product.variants.some((v) => v.options.some((o) => /colou?r/i.test(o.name)))
 
   return (
-    <div className="space-y-8">
-      <Link to="/" className={buttonVariants({ variant: "ghost", size: "sm", className: "-ml-2" })}>
-        ← Back to catalog
-      </Link>
+    <div>
+      <nav className="flex flex-wrap gap-x-2 border-b border-black pb-2 text-[11px] uppercase text-neutral-500">
+        <Link to="/" className="text-black hover:underline">
+          All products
+        </Link>
+        {crumbs.map((crumb) => (
+          <span key={crumb} className="flex gap-x-2">
+            <span>/</span>
+            <span>{crumb}</span>
+          </span>
+        ))}
+      </nav>
 
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 gap-8 pt-[3px] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-12">
         <Gallery images={images} alt={product.name} />
 
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <div className="text-sm uppercase tracking-wide text-muted-foreground">{product.brand}</div>
-            <h1 className="text-3xl font-semibold leading-tight tracking-tight">{product.name}</h1>
-            <PriceTag price={price} size="lg" />
-          </div>
+        <div className="lg:sticky lg:top-6 lg:max-h-[calc(100vh-3rem)] lg:self-start lg:overflow-y-auto">
+          <div className="space-y-6 lg:max-w-md">
+            <div className="space-y-2">
+              <div className="text-[11px] uppercase text-neutral-500">{product.brand}</div>
+              <h1 className="text-[15px] uppercase leading-snug tracking-wide">{product.name}</h1>
+              <PriceTag price={price} size="lg" />
+            </div>
 
-          <div className="flex flex-wrap gap-1.5">
-            {crumbs.map((crumb, i) => (
-              <Badge key={i} variant={i === crumbs.length - 1 ? "default" : "outline"}>
-                {crumb}
-              </Badge>
+            {product.colors.length > 0 && !colourIsSelectable && (
+              <section className="space-y-2">
+                <h2 className="text-[11px] uppercase">
+                  Colour <span className="ml-2 text-neutral-500">{product.colors.length}</span>
+                </h2>
+                <ul className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] uppercase text-neutral-500">
+                  {product.colors.map((color) => (
+                    <li key={color}>{color}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {variantGroups.map((group, i) => (
+              <section key={i} className="space-y-2">
+                {group[0].options.length === 0 && (
+                  <h2 className="text-[11px] uppercase">{group.length > 1 ? "Variants" : "Availability"}</h2>
+                )}
+                <VariantPicker variants={group} onSelect={setVariant} />
+              </section>
             ))}
-          </div>
 
-          {product.colors.length > 0 && (
-            <section className="space-y-2">
-              <h2 className="text-sm font-medium">Colours</h2>
-              <div className="flex flex-wrap gap-2">
-                {product.colors.map((color) => (
-                  <Badge key={color} variant="secondary">
-                    {color}
-                  </Badge>
-                ))}
-              </div>
+            <button
+              type="button"
+              className="w-full border border-black py-3 text-[11px] uppercase tracking-wide transition-colors hover:bg-black hover:text-white"
+            >
+              Add
+            </button>
+
+            <section className="space-y-3 border-t border-neutral-200 pt-5">
+              {paragraphs.map((text, i) => (
+                <p key={i} className="text-[11px] leading-relaxed">
+                  {text}
+                </p>
+              ))}
             </section>
-          )}
 
-          {variantGroups.map((group, i) => (
-            <section key={i} className="space-y-2">
-              {group[0].options.length === 0 && (
-                <h2 className="text-sm font-medium">{group.length > 1 ? "Variants" : "Availability"}</h2>
+            {product.key_features.length > 0 && (
+              <section className="space-y-2 border-t border-neutral-200 pt-5">
+                <h2 className="text-[11px] uppercase">Details</h2>
+                <ul className="space-y-1 text-[11px] leading-relaxed text-neutral-600">
+                  {product.key_features.map((feature, i) => (
+                    <li key={i}>{feature}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {product.video_url && (
+              <section className="space-y-2 border-t border-neutral-200 pt-5">
+                <h2 className="text-[11px] uppercase">Video</h2>
+                <video src={product.video_url} controls className="w-full bg-black" />
+              </section>
+            )}
+
+            <footer className="flex flex-wrap gap-x-4 gap-y-1 border-t border-neutral-200 pt-5 text-[10px] uppercase text-neutral-500">
+              {record.source_url && (
+                <a href={record.source_url} target="_blank" rel="noreferrer" className="hover:underline">
+                  Original page
+                </a>
               )}
-              <VariantPicker variants={group} onSelect={setVariant} />
-            </section>
-          ))}
-
-          {product.video_url && (
-            <section className="space-y-2">
-              <h2 className="text-sm font-medium">Video</h2>
-              <video src={product.video_url} controls className="w-full rounded-lg bg-black" />
-            </section>
-          )}
+              <span>{record.source_file}</span>
+              <span>{record.model}</span>
+            </footer>
+          </div>
         </div>
       </div>
-
-      <Separator />
-
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-        <section className="space-y-3">
-          <h2 className="text-lg font-semibold">Description</h2>
-          {paragraphs.map((text, i) => (
-            <p key={i} className="text-sm leading-relaxed text-muted-foreground">
-              {text}
-            </p>
-          ))}
-        </section>
-
-        {product.key_features.length > 0 && (
-          <section className="space-y-3">
-            <h2 className="text-lg font-semibold">Details</h2>
-            <ul className="list-disc space-y-1.5 pl-5 text-sm text-muted-foreground">
-              {product.key_features.map((feature, i) => (
-                <li key={i}>{feature}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </div>
-
-      <Separator />
-
-      <footer className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-muted-foreground">
-        {record.source_url && (
-          <a href={record.source_url} target="_blank" rel="noreferrer" className="underline-offset-2 hover:underline">
-            Original page
-          </a>
-        )}
-        <span>Extracted from {record.source_file}</span>
-        <span>Model {record.model}</span>
-      </footer>
     </div>
   )
 }

@@ -1,40 +1,32 @@
 import { Link } from "react-router-dom"
-import { categoryLeaf } from "@/api"
+import { FitImage } from "@/components/FitImage"
 import { PriceTag } from "@/components/PriceTag"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent } from "@/components/ui/card"
 import type { CatalogItem } from "@/types"
 
 export function ProductCard({ item }: { item: CatalogItem }) {
-  const details = [
-    item.color_count > 1 ? `${item.color_count} colours` : null,
-    item.variant_count > 1 ? `${item.variant_count} variants` : null,
-  ].filter(Boolean)
   return (
     <Link to={`/products/${encodeURIComponent(item.id)}`} className="group block">
-      <Card className="h-full overflow-hidden py-0 transition-shadow group-hover:shadow-md">
-        <div className="aspect-square bg-muted">
-          {item.image_url ? (
-            <img
-              src={item.image_url}
-              alt={item.name}
-              className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
-              loading="lazy"
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center text-sm text-muted-foreground">No image</div>
-          )}
+      <div className="relative aspect-[3/4] overflow-hidden bg-white">
+        {item.image_url ? (
+          <>
+            <FitImage src={item.image_url} alt={item.name} loading="lazy" />
+            {item.hover_image_url && (
+              <div className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <FitImage src={item.hover_image_url} alt="" loading="lazy" />
+              </div>
+            )}
+          </>
+        ) : (
+          <div className="flex h-full items-center justify-center text-[11px] uppercase text-neutral-400">No image</div>
+        )}
+      </div>
+      <div className="space-y-1 px-1 pt-2 pb-4">
+        <div className="flex items-start justify-between gap-3">
+          <div className="line-clamp-2 text-[11px] uppercase leading-snug">{item.name}</div>
+          {item.color_count > 1 && <span className="shrink-0 text-[10px] text-neutral-500">+{item.color_count - 1}</span>}
         </div>
-        <CardContent className="space-y-2 px-4 pb-4 pt-3">
-          <div className="text-xs uppercase tracking-wide text-muted-foreground">{item.brand}</div>
-          <div className="line-clamp-2 text-sm font-medium leading-snug">{item.name}</div>
-          <PriceTag price={item.price} />
-          <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <Badge variant="secondary">{categoryLeaf(item.category)}</Badge>
-            {details.length > 0 && <span className="text-xs text-muted-foreground">{details.join(" · ")}</span>}
-          </div>
-        </CardContent>
-      </Card>
+        <PriceTag price={item.price} />
+      </div>
     </Link>
   )
 }
