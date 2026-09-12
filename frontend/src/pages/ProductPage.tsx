@@ -51,10 +51,12 @@ export function ProductPage() {
         <Link to="/" className="text-black hover:underline">
           All products
         </Link>
-        {crumbs.map((crumb) => (
+        {crumbs.map((crumb, i) => (
           <span key={crumb} className="flex gap-x-2">
             <span>/</span>
-            <span>{crumb}</span>
+            <Link to={`/?category=${encodeURIComponent(crumbs.slice(0, i + 1).join(" > "))}`} className="hover:text-black">
+              {crumb}
+            </Link>
           </span>
         ))}
       </nav>
