@@ -5,7 +5,7 @@ from selectolax.parser import HTMLParser
 from models import PageBundle
 from utils.html import extract_embedded_json, extract_json_ld, extract_meta, extract_visible_text, tokenize
 from utils.images import abbreviate_url, collect_images, collect_videos
-from utils.json_prune import prune_blobs
+from utils.json_prune import prune_blobs, prune_json_ld
 
 
 def build_bundle(html: str, source_url: str | None = None) -> PageBundle:
@@ -20,7 +20,7 @@ def build_bundle(html: str, source_url: str | None = None) -> PageBundle:
     return PageBundle(
         source_url=base_url or None,
         meta=meta,
-        json_ld=json_ld,
+        json_ld=prune_json_ld(json_ld, title_tokens),
         embedded_json=prune_blobs(blobs, title_tokens),
         visible_text=extract_visible_text(tree),
         images=images,

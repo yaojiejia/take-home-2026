@@ -25,7 +25,9 @@ META_IMAGE_KEYS = ("og:image", "og:image:url", "og:image:secure_url", "twitter:i
 IMAGE_ATTRS = ("src", "data-src", "srcset", "data-srcset", "data-original", "data-lazy", "data-zoom-image", "data-large", "data-image")
 URL_NOISE_TOKENS = {"logo", "logos", "icon", "icons", "sprite", "sprites", "flag", "flags", "badge", "badges", "payment", "placeholder", "pixel", "loading", "loader", "spinner", "avatar", "favicon"}
 ALT_NOISE_TOKENS = {"logo", "icon", "sprite", "placeholder", "spinner", "favicon"}
-IMAGE_PATH_HINTS = ("/image", "/img/", "/images/", "/media/", "/files/", "/products/")
+IMAGE_PATH_HINTS = ("/image", "/img/", "/images/", "/media/", "/files/", "/files", "/products/", "/photo", "/is/image/", "/i/")
+IMAGE_HOST_HINTS = ("media", "image", "img", "cdn", "assets", "static", "photo", "pic")
+TRUSTED_SOURCES = ("img", "meta", "json-ld")
 NON_IMAGE_SUFFIXES = (".js", ".css", ".html", ".json", ".svg", ".gif")
 RESIZE_QUERY_KEYS = {
     "w", "h", "width", "height", "q", "quality", "fit", "format", "fmt", "auto",
@@ -91,7 +93,7 @@ def dedupe_and_rank(raw: list[tuple[str, str, str]], base_url: str) -> list[Imag
     groups: dict[str, dict] = {}
     for url, source, context in raw:
         url = normalize_url(url, base_url)
-        if not url or not is_plausible_image(url, context):
+        if not url or not is_plausible_image(url, context, trusted=source in TRUSTED_SOURCES):
             continue
         key = group_key(url)
         group = groups.setdefault(key, {"urls": set(), "source": source, "context": context, "order": len(groups)})
@@ -193,10 +195,10 @@ def normalize_url(url: str, base_url: str) -> str | None:
     return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), ""))
 
 
-def is_plausible_image(url: str, context: str) -> bool:
+def is_plausible_image(url: str, context: str, trusted: bool = False) -> bool:
     if URL_NOISE_TOKENS & tokens(urlsplit(url).path) or ALT_NOISE_TOKENS & tokens(context):
         return False
-    return bool(IMAGE_EXT_RE.search(url) or looks_like_image_path(url))
+    return trusted or bool(IMAGE_EXT_RE.search(url) or looks_like_image_path(url))
 
 
 def tokens(text: str) -> set[str]:
@@ -204,8 +206,11 @@ def tokens(text: str) -> set[str]:
 
 
 def looks_like_image_path(url: str) -> bool:
-    lowered = url.lower()
-    return any(hint in lowered for hint in IMAGE_PATH_HINTS) and not lowered.endswith(NON_IMAGE_SUFFIXES)
+    parts = urlsplit(url.lower())
+    if parts.path.endswith(NON_IMAGE_SUFFIXES) or parts.path.count("/") < 2:
+        return False
+    host_tokens = set(parts.netloc.split("."))
+    return any(hint in parts.path for hint in IMAGE_PATH_HINTS) or bool(host_tokens & set(IMAGE_HOST_HINTS))
 
 
 def inside_site_chrome(node: Node) -> bool:
