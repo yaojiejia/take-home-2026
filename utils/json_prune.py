@@ -19,7 +19,8 @@ LONG_TEXT_KEY_PARTS = ("description", "feature", "bullet", "spec", "detail", "no
 MAX_LIST_ITEMS = 120
 MAX_STRING_CHARS = 400
 MAX_LONG_TEXT_CHARS = 4000
-JSON_BUDGET_CHARS = 48_000
+MAX_JSON_BUDGET_CHARS = 48_000
+MIN_JSON_BUDGET_CHARS = 20_000
 JSON_LD_BUDGET_CHARS = 30_000
 MIN_DROPPABLE_CHARS = 1_500
 MAX_SHRINK_PASSES = 60
@@ -27,13 +28,17 @@ OVERSHOOT_FACTOR = 1.5
 MAX_IDENTIFIER_HOLDERS = 20
 
 
-def prune_blobs(blobs: list[tuple[str, object]], title_tokens: set[str], identifiers: set[str]) -> dict[str, object]:
+def prune_blobs(blobs: list[tuple[str, object]], title_tokens: set[str], identifiers: set[str], budget: int = MAX_JSON_BUDGET_CHARS) -> dict[str, object]:
     pruned: dict[str, object] = {}
     for label, blob in blobs:
         kept = prune_node(blob, "", title_tokens)
         if kept is not None:
             pruned[unique_label(label, pruned)] = kept
-    return shrink_to_budget(pruned, title_tokens, identifiers, JSON_BUDGET_CHARS)
+    return shrink_to_budget(pruned, title_tokens, identifiers, budget)
+
+
+def embedded_budget(fixed_chars: int, total_chars: int) -> int:
+    return max(MIN_JSON_BUDGET_CHARS, min(MAX_JSON_BUDGET_CHARS, total_chars - fixed_chars))
 
 
 def prune_json_ld(items: list[dict], title_tokens: set[str], identifiers: set[str]) -> list[dict]:

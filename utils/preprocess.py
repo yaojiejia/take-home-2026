@@ -5,7 +5,9 @@ from selectolax.parser import HTMLParser
 from models import PageBundle
 from utils.html import extract_embedded_json, extract_json_ld, extract_meta, extract_visible_text, page_identifiers, tokenize
 from utils.images import abbreviate_url, collect_images, collect_videos
-from utils.json_prune import prune_blobs, prune_json_ld
+from utils.json_prune import embedded_budget, prune_blobs, prune_json_ld
+
+TOTAL_BUNDLE_CHARS = 72_000
 
 
 def build_bundle(html: str, source_url: str | None = None) -> PageBundle:
@@ -18,15 +20,18 @@ def build_bundle(html: str, source_url: str | None = None) -> PageBundle:
     identifiers = page_identifiers(meta)
     images = collect_images(tree, html, meta, json_ld, blobs, base_url)
     videos = collect_videos(tree, html, base_url)
-    return PageBundle(
+    bundle = PageBundle(
         source_url=base_url or None,
         meta=meta,
         json_ld=prune_json_ld(json_ld, title_tokens, identifiers),
-        embedded_json=prune_blobs(blobs, title_tokens, identifiers),
+        embedded_json={},
         visible_text=extract_visible_text(tree),
         images=images,
         videos=videos,
     )
+    budget = embedded_budget(len(render_bundle(bundle)), TOTAL_BUNDLE_CHARS)
+    bundle.embedded_json = prune_blobs(blobs, title_tokens, identifiers, budget)
+    return bundle
 
 
 def render_bundle(bundle: PageBundle) -> str:
