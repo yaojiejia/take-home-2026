@@ -46,7 +46,7 @@ async def ingest(input_dir: Path, output_file: Path, model: str, concurrency: in
 
 def product_id(brand: str, name: str) -> str:
     label = name if name.lower().startswith(brand.lower()) else f"{brand} {name}"
-    return re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")[:80]
+    return re.sub(r"[^a-z0-9]+", "-", label.lower())[:80].strip("-")
 
 
 if __name__ == "__main__":
