@@ -25,7 +25,7 @@ META_IMAGE_KEYS = ("og:image", "og:image:url", "og:image:secure_url", "twitter:i
 IMAGE_ATTRS = ("src", "data-src", "srcset", "data-srcset", "data-original", "data-lazy", "data-zoom-image", "data-large", "data-image")
 URL_NOISE_TOKENS = {"logo", "logos", "icon", "icons", "sprite", "sprites", "flag", "flags", "badge", "badges", "payment", "placeholder", "pixel", "loading", "loader", "spinner", "avatar", "favicon"}
 ALT_NOISE_TOKENS = {"logo", "icon", "sprite", "placeholder", "spinner", "favicon"}
-IMAGE_PATH_HINTS = ("/image", "/img/", "/images/", "/media/", "/files/", "/files", "/products/", "/photo", "/is/image/", "/i/")
+IMAGE_PATH_HINTS = ("/image", "/img/", "/images/", "/media/", "/files/", "/files", "/shop/products/", "/photo", "/is/image/", "/i/")
 IMAGE_HOST_HINTS = ("media", "image", "img", "cdn", "assets", "static", "photo", "pic")
 TRUSTED_SOURCES = ("img", "meta", "json-ld")
 NON_IMAGE_SUFFIXES = (".js", ".css", ".html", ".json", ".svg", ".gif")
@@ -235,9 +235,9 @@ def is_tiny(node: Node) -> bool:
 
 def parse_srcset(value: str) -> list[str]:
     urls = []
-    for part in value.split(","):
+    for part in re.split(r",\s+(?=\S)", value.strip()):
         piece = part.strip().split()
-        if piece:
+        if piece and ("/" in piece[0] or "." in piece[0]):
             urls.append(piece[0])
     return urls
 
