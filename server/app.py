@@ -49,18 +49,31 @@ def catalog_item(result: ExtractionResult) -> CatalogItem:
     )
 
 
+class Catalog:
+    def __init__(self) -> None:
+        self.stamp: tuple = ()
+        self.products: dict[str, ExtractionResult] = {}
+
+    def current(self) -> dict[str, ExtractionResult]:
+        stamp = tuple(sorted((path.name, path.stat().st_mtime_ns) for path in OUTPUT_DIR.glob("*.json")))
+        if stamp != self.stamp:
+            self.products = load_products()
+            self.stamp = stamp
+        return self.products
+
+
 app = FastAPI(title="Product catalog")
-PRODUCTS = load_products()
+catalog = Catalog()
 
 
 @app.get("/api/products", response_model=list[CatalogItem])
 def list_products() -> list[CatalogItem]:
-    return [catalog_item(result) for result in PRODUCTS.values()]
+    return [catalog_item(result) for result in catalog.current().values()]
 
 
 @app.get("/api/products/{product_id}", response_model=ExtractionResult)
 def get_product(product_id: str) -> ExtractionResult:
-    result = PRODUCTS.get(product_id)
+    result = catalog.current().get(product_id)
     if result is None:
         raise HTTPException(status_code=404, detail="Product not found")
     return result
