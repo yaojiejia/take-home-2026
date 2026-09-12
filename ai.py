@@ -29,6 +29,8 @@ MODEL_PRICES: dict[str, dict[str, float]] = {
 
 T = TypeVar("T", bound=BaseModel)
 
+usage_totals = {"calls": 0, "input_tokens": 0, "output_tokens": 0, "reasoning_tokens": 0, "cost_usd": 0.0}
+
 
 @lru_cache
 def _get_client() -> AsyncOpenAI:
@@ -66,6 +68,12 @@ def _log_usage(response) -> None:
     single_output_cost = (output_tokens / 1_000_000) * output_price
     single_reasoning_cost = (reasoning_tokens / 1_000_000) * output_price
     single_total = single_input_cost + single_output_cost + single_reasoning_cost
+
+    usage_totals["calls"] += 1
+    usage_totals["input_tokens"] += input_tokens
+    usage_totals["output_tokens"] += output_tokens
+    usage_totals["reasoning_tokens"] += reasoning_tokens
+    usage_totals["cost_usd"] += single_total
 
     # Extrapolate to 1M queries
     million_cost = single_total * 1_000_000
