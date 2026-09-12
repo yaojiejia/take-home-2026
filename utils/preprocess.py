@@ -3,7 +3,7 @@ import json
 from selectolax.parser import HTMLParser
 
 from models import PageBundle
-from utils.html import extract_embedded_json, extract_json_ld, extract_meta, extract_visible_text, tokenize
+from utils.html import extract_embedded_json, extract_json_ld, extract_meta, extract_visible_text, page_identifiers, tokenize
 from utils.images import abbreviate_url, collect_images, collect_videos
 from utils.json_prune import prune_blobs, prune_json_ld
 
@@ -15,13 +15,14 @@ def build_bundle(html: str, source_url: str | None = None) -> PageBundle:
     json_ld = extract_json_ld(tree)
     blobs = extract_embedded_json(tree)
     title_tokens = tokenize(meta.get("h1") or meta.get("og:title") or meta.get("title") or "")
+    identifiers = page_identifiers(meta)
     images = collect_images(tree, html, meta, json_ld, blobs, base_url)
     videos = collect_videos(tree, html, base_url)
     return PageBundle(
         source_url=base_url or None,
         meta=meta,
-        json_ld=prune_json_ld(json_ld, title_tokens),
-        embedded_json=prune_blobs(blobs, title_tokens),
+        json_ld=prune_json_ld(json_ld, title_tokens, identifiers),
+        embedded_json=prune_blobs(blobs, title_tokens, identifiers),
         visible_text=extract_visible_text(tree),
         images=images,
         videos=videos,

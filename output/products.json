@@ -41,7 +41,16 @@
           "options": [],
           "price": null,
           "available": true,
-          "image_urls": []
+          "image_urls": [
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/f7b42b30-cf5a-4829-be02-76bf93727867",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/b9e63a53-01c5-44c6-97e2-9c78a7ed2a10",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/373f3cb5-5ecf-4a57-b7d6-510d8698e977",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/9e7c188d-d2b8-4217-b5f8-48b29fd445b1",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/f27d0a21-766f-4f84-9927-30cf76b27188",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/1b434a2e-7528-42cc-a489-83177395594b",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/bb222bcf-a069-4d02-b9d9-f23410f64138",
+            "https://cdn-tp6.mozu.com/24645-37138/cms/37138/files/028f1d30-dca3-4b44-84ef-40a6f3b149e8"
+          ]
         }
       ]
     }
@@ -275,16 +284,16 @@
         "100% jersey-knit cotton.",
         "Double ring-spun fabric fights shrinkage, wrinkles, fading and pilling.",
         "Built for comfort, the fabric gets even softer the more you wash and dry it.",
-        "Machine wash and dry."
+        "Machine wash and dry.",
+        "Traditional Fit: Relaxed through the chest, sleeve and waist."
       ],
       "image_urls": [
-        "https://cdni.llbean.net/is/image/wim/224626_0_44",
         "https://cdni.llbean.net/is/image/wim/224626_1176_41",
         "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-        "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-        "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
+        "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_44",
+        "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_44",
         "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-        "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+        "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_48"
       ],
       "video_url": null,
       "category": {
@@ -318,17 +327,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1176_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH201004",
           "title": "Charcoal Heather / Medium",
           "options": [
             {
@@ -343,17 +346,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1176_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH201006",
           "title": "Charcoal Heather / Large",
           "options": [
             {
@@ -368,17 +365,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1176_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH201008",
           "title": "Charcoal Heather / X-Large",
           "options": [
             {
@@ -393,17 +384,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1176_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH201009",
           "title": "Charcoal Heather / XX-Large",
           "options": [
             {
@@ -418,192 +403,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1176_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Small",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "Small"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Medium",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "Medium"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / X-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "X-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / XX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "XX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "0ATH210002",
           "title": "Black / Small",
           "options": [
             {
@@ -618,17 +422,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH210004",
           "title": "Black / Medium",
           "options": [
             {
@@ -643,17 +441,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH210006",
           "title": "Black / Large",
           "options": [
             {
@@ -668,17 +460,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH210008",
           "title": "Black / X-Large",
           "options": [
             {
@@ -693,17 +479,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH210009",
           "title": "Black / XX-Large",
           "options": [
             {
@@ -718,42 +498,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Black / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Black"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "0ATH212002",
           "title": "Delta Blue / Small",
           "options": [
             {
@@ -768,17 +517,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH212004",
           "title": "Delta Blue / Medium",
           "options": [
             {
@@ -793,17 +536,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH212006",
           "title": "Delta Blue / Large",
           "options": [
             {
@@ -818,17 +555,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH212008",
           "title": "Delta Blue / X-Large",
           "options": [
             {
@@ -843,17 +574,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH212009",
           "title": "Delta Blue / XX-Large",
           "options": [
             {
@@ -868,42 +593,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Delta Blue / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Delta Blue"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "0ATH216002",
           "title": "Gray Heather / Small",
           "options": [
             {
@@ -918,17 +612,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH216004",
           "title": "Gray Heather / Medium",
           "options": [
             {
@@ -943,17 +631,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH216006",
           "title": "Gray Heather / Large",
           "options": [
             {
@@ -968,17 +650,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH216008",
           "title": "Gray Heather / X-Large",
           "options": [
             {
@@ -993,17 +669,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH216009",
           "title": "Gray Heather / XX-Large",
           "options": [
             {
@@ -1018,42 +688,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Gray Heather / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Gray Heather"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "0ATH280002",
           "title": "Navy Blue / Small",
           "options": [
             {
@@ -1068,17 +707,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH280004",
           "title": "Navy Blue / Medium",
           "options": [
             {
@@ -1093,17 +726,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH280006",
           "title": "Navy Blue / Large",
           "options": [
             {
@@ -1118,17 +745,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH280008",
           "title": "Navy Blue / X-Large",
           "options": [
             {
@@ -1143,17 +764,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH280009",
           "title": "Navy Blue / XX-Large",
           "options": [
             {
@@ -1168,42 +783,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Navy Blue / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Navy Blue"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "0ATH290002",
           "title": "Soft Spruce / Small",
           "options": [
             {
@@ -1218,17 +802,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH290004",
           "title": "Soft Spruce / Medium",
           "options": [
             {
@@ -1243,17 +821,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH290006",
           "title": "Soft Spruce / Large",
           "options": [
             {
@@ -1268,17 +840,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH290008",
           "title": "Soft Spruce / X-Large",
           "options": [
             {
@@ -1293,17 +859,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "0ATH290009",
           "title": "Soft Spruce / XX-Large",
           "options": [
             {
@@ -1318,42 +878,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Soft Spruce / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Soft Spruce"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "1000119901",
           "title": "White / Small",
           "options": [
             {
@@ -1368,17 +897,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000119902",
           "title": "White / Medium",
           "options": [
             {
@@ -1393,17 +916,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000119933",
           "title": "White / Large",
           "options": [
             {
@@ -1418,17 +935,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000119938",
           "title": "White / X-Large",
           "options": [
             {
@@ -1443,17 +954,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000119973",
           "title": "White / XX-Large",
           "options": [
             {
@@ -1468,42 +973,11 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "White / XXX-Large",
-          "options": [
-            {
-              "name": "Color",
-              "value": "White"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": null,
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
+          "sku": "1000264614",
           "title": "Lake / Small",
           "options": [
             {
@@ -1522,17 +996,11 @@
           },
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000264615",
           "title": "Lake / Medium",
           "options": [
             {
@@ -1551,17 +1019,11 @@
           },
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000264616",
           "title": "Lake / Large",
           "options": [
             {
@@ -1580,17 +1042,11 @@
           },
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000264617",
           "title": "Lake / X-Large",
           "options": [
             {
@@ -1609,17 +1065,11 @@
           },
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
           ]
         },
         {
-          "sku": "0ATH201002",
+          "sku": "1000264618",
           "title": "Lake / XX-Large",
           "options": [
             {
@@ -1638,52 +1088,13 @@
           },
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Lake / XXX-Large",
+          "sku": "0ATG401004",
+          "title": "Small",
           "options": [
-            {
-              "name": "Color",
-              "value": "Lake"
-            },
-            {
-              "name": "Size",
-              "value": "XXX-Large"
-            }
-          ],
-          "price": {
-            "price": 24.99,
-            "currency": "USD",
-            "compare_at_price": 29.95
-          },
-          "available": true,
-          "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
-          ]
-        },
-        {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Small",
-          "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
             {
               "name": "Size",
               "value": "Small"
@@ -1692,23 +1103,13 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Medium",
+          "sku": "0ATG401006",
+          "title": "Medium",
           "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
             {
               "name": "Size",
               "value": "Medium"
@@ -1717,23 +1118,13 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Large",
+          "sku": "0ATG401008",
+          "title": "Large",
           "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
             {
               "name": "Size",
               "value": "Large"
@@ -1742,23 +1133,13 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / X-Large",
+          "sku": "0ATG401009",
+          "title": "X-Large",
           "options": [
-            {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
             {
               "name": "Size",
               "value": "X-Large"
@@ -1767,251 +1148,316 @@
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / XX-Large",
+          "sku": "0ATG410004",
+          "title": "Small",
           "options": [
             {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
               "name": "Size",
-              "value": "XX-Large"
+              "value": "Small"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / XXX-Large",
+          "sku": "0ATG410006",
+          "title": "Medium",
           "options": [
             {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
               "name": "Size",
-              "value": "XXX-Large"
+              "value": "Medium"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Charcoal Heather / Tall",
+          "sku": "0ATG410008",
+          "title": "Large",
           "options": [
             {
-              "name": "Color",
-              "value": "Charcoal Heather"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "Large"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Black / Tall",
+          "sku": "0ATG410009",
+          "title": "X-Large",
           "options": [
             {
-              "name": "Color",
-              "value": "Black"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "X-Large"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Delta Blue / Tall",
+          "sku": "0ATG412004",
+          "title": "Small",
           "options": [
             {
-              "name": "Color",
-              "value": "Delta Blue"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "Small"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_36814_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Gray Heather / Tall",
+          "sku": "0ATG412006",
+          "title": "Medium",
           "options": [
             {
-              "name": "Color",
-              "value": "Gray Heather"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "Medium"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_1207_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Navy Blue / Tall",
+          "sku": "0ATG412008",
+          "title": "Large",
           "options": [
             {
-              "name": "Color",
-              "value": "Navy Blue"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "Large"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_38221_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Soft Spruce / Tall",
+          "sku": "0ATG412009",
+          "title": "X-Large",
           "options": [
             {
-              "name": "Color",
-              "value": "Soft Spruce"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "X-Large"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_292_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "White / Tall",
+          "sku": "0ATG416004",
+          "title": "Small",
           "options": [
             {
-              "name": "Color",
-              "value": "White"
-            },
-            {
               "name": "Size",
-              "value": "Tall"
+              "value": "Small"
             }
           ],
           "price": null,
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_464_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
           ]
         },
         {
-          "sku": "0ATH201002",
-          "title": "Lake / Tall",
+          "sku": "0ATG416006",
+          "title": "Medium",
           "options": [
             {
-              "name": "Color",
-              "value": "Lake"
-            },
+              "name": "Size",
+              "value": "Medium"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
+          ]
+        },
+        {
+          "sku": "0ATG416008",
+          "title": "Large",
+          "options": [
             {
               "name": "Size",
-              "value": "Tall"
+              "value": "Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
+          ]
+        },
+        {
+          "sku": "0ATG416009",
+          "title": "X-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "X-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_38221_41"
+          ]
+        },
+        {
+          "sku": "0ATG480004",
+          "title": "Small",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Small"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
+          ]
+        },
+        {
+          "sku": "0ATG480006",
+          "title": "Medium",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Medium"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
+          ]
+        },
+        {
+          "sku": "0ATG480008",
+          "title": "Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
+          ]
+        },
+        {
+          "sku": "0ATG480009",
+          "title": "X-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "X-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_292_41"
+          ]
+        },
+        {
+          "sku": "0ATG490004",
+          "title": "Small",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Small"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
+          ]
+        },
+        {
+          "sku": "0ATG490006",
+          "title": "Medium",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Medium"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
+          ]
+        },
+        {
+          "sku": "0ATG490008",
+          "title": "Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
+          ]
+        },
+        {
+          "sku": "0ATG490009",
+          "title": "X-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "X-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
+          ]
+        },
+        {
+          "sku": "1000119899",
+          "title": "Small",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Small"
             }
           ],
           "price": {
@@ -2021,13 +1467,237 @@
           },
           "available": true,
           "image_urls": [
-            "https://cdni.llbean.net/is/image/wim/224626_55_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_41",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_44?defaultImage=llbprod%2F224626_0_44",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_45?defaultImage=llbprod%2F224626_0_45",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_46?defaultImage=llbprod%2F224626_0_46",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_47?defaultImage=llbprod%2F224626_0_47",
-            "https://cdni.llbean.net/is/image/wim/224626_1176_48?defaultImage=llbprod%2F224626_0_44"
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
+          ]
+        },
+        {
+          "sku": "1000119900",
+          "title": "Medium",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Medium"
+            }
+          ],
+          "price": {
+            "price": 24.99,
+            "currency": "USD",
+            "compare_at_price": 29.95
+          },
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
+          ]
+        },
+        {
+          "sku": "1000119932",
+          "title": "Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Large"
+            }
+          ],
+          "price": {
+            "price": 24.99,
+            "currency": "USD",
+            "compare_at_price": 29.95
+          },
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
+          ]
+        },
+        {
+          "sku": "1000119934",
+          "title": "X-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "X-Large"
+            }
+          ],
+          "price": {
+            "price": 24.99,
+            "currency": "USD",
+            "compare_at_price": 29.95
+          },
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
+          ]
+        },
+        {
+          "sku": "1000119936",
+          "title": "XX-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "XX-Large"
+            }
+          ],
+          "price": {
+            "price": 24.99,
+            "currency": "USD",
+            "compare_at_price": 29.95
+          },
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
+          ]
+        },
+        {
+          "sku": "1000119972",
+          "title": "XXX-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "XXX-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_464_41"
+          ]
+        },
+        {
+          "sku": "1000223642",
+          "title": "Small",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Small"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
+          ]
+        },
+        {
+          "sku": "1000223643",
+          "title": "Medium",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Medium"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
+          ]
+        },
+        {
+          "sku": "1000223644",
+          "title": "Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
+          ]
+        },
+        {
+          "sku": "1000223645",
+          "title": "X-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "X-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
+          ]
+        },
+        {
+          "sku": "1000223646",
+          "title": "XX-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "XX-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
+          ]
+        },
+        {
+          "sku": "1000223647",
+          "title": "XXX-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "XXX-Large"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_36814_41"
+          ]
+        },
+        {
+          "sku": "1000223700",
+          "title": "Small",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Small"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
+          ]
+        },
+        {
+          "sku": "1000223701",
+          "title": "Medium",
+          "options": [
+            {
+              "name": "Size",
+              "value": "Medium"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_1207_41"
+          ]
+        },
+        {
+          "sku": "1000264619",
+          "title": "XXX-Large",
+          "options": [
+            {
+              "name": "Size",
+              "value": "XXX-Large"
+            }
+          ],
+          "price": {
+            "price": 24.99,
+            "currency": "USD",
+            "compare_at_price": 29.95
+          },
+          "available": true,
+          "image_urls": [
+            "https://cdni.llbean.net/is/image/wim/224626_55_41"
           ]
         }
       ]
@@ -2075,9 +1745,8 @@
         "Black/Black",
         "Black/White",
         "Flax/Gum Light Brown/Black/Wheat",
-        "Wolf Grey/Black/Wolf Grey",
         "White/Black",
-        "White/White"
+        "Wolf Grey/Black/Wolf Grey"
       ],
       "variants": [
         {
@@ -2134,7 +1803,7 @@
         },
         {
           "sku": "CJ9179-001",
-          "title": "Black/Black / 6",
+          "title": "Black/Black / 5",
           "options": [
             {
               "name": "Color",
@@ -2142,14 +1811,10 @@
             },
             {
               "name": "Size",
-              "value": "6"
+              "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c90f7949-b685-485e-8602-23f1d079cd3a/AIR+FORCE+1+%2707+WB.png",
@@ -2164,7 +1829,7 @@
         },
         {
           "sku": "CT2302-002",
-          "title": "Black/White / 6",
+          "title": "Black/White / 5",
           "options": [
             {
               "name": "Color",
@@ -2172,14 +1837,10 @@
             },
             {
               "name": "Size",
-              "value": "6"
+              "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/057c2bbd-d065-44eb-913f-51dd4f98d680/AIR+FORCE+1+%2707.png",
@@ -2196,7 +1857,7 @@
         },
         {
           "sku": "CJ9179-200",
-          "title": "Flax/Gum Light Brown/Black/Wheat / 3.5",
+          "title": "Flax/Gum Light Brown/Black/Wheat / 5",
           "options": [
             {
               "name": "Color",
@@ -2204,14 +1865,10 @@
             },
             {
               "name": "Size",
-              "value": "3.5"
+              "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/144d0759-690b-42d5-a9c7-9bc9f36e819e/AIR+FORCE+1+%2707+WB.png",
@@ -2226,7 +1883,7 @@
         },
         {
           "sku": "CT2302-100",
-          "title": "White/Black / 6",
+          "title": "White/Black / 5",
           "options": [
             {
               "name": "Color",
@@ -2234,14 +1891,10 @@
             },
             {
               "name": "Size",
-              "value": "6"
+              "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/a42a5d53-2f99-4e78-a081-9d07a2d0774a/AIR+FORCE+1+%2707.png",
@@ -2266,26 +1919,16 @@
               "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9fffd0e4-2c1a-4963-8d69-e8582131797b/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c2ec17d6-5063-40a3-9ab5-f9614bc2b116/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/633769b8-65f1-4914-937a-c5f4ac5aa2f3/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/ff96c691-a7b6-43af-8348-dc9854d144cf/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0a33c27c-7e19-4a36-bd15-8f870eeb36bd/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/298956a7-1485-4392-9f51-d00257661bab/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/e6fadbbf-9428-48ea-996d-a299f89b19ff/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b890e27a-ac63-4e81-9f20-602fbfe7b893/AIR+FORCE+1+%2707+WB.png"
+            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c321f174-0340-48e4-ba1c-06d1d85c1658/AIR+FORCE+1+%2707+WB.png"
           ]
         },
         {
           "sku": "CW2288-001",
-          "title": "Black/Black / 5.5",
+          "title": "Black/Black / 5",
           "options": [
             {
               "name": "Color",
@@ -2293,29 +1936,19 @@
             },
             {
               "name": "Size",
-              "value": "5.5"
+              "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5daa00d9-afae-4125-a95c-fc71923b81c3/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c2ec17d6-5063-40a3-9ab5-f9614bc2b116/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/633769b8-65f1-4914-937a-c5f4ac5aa2f3/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/ff96c691-a7b6-43af-8348-dc9854d144cf/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0a33c27c-7e19-4a36-bd15-8f870eeb36bd/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/298956a7-1485-4392-9f51-d00257661bab/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/e6fadbbf-9428-48ea-996d-a299f89b19ff/AIR+FORCE+1+%2707+WB.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b890e27a-ac63-4e81-9f20-602fbfe7b893/AIR+FORCE+1+%2707+WB.png"
+            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/fc4622c4-2769-4665-aa6e-42c974a7705e/AIR+FORCE+1+%2707.png"
           ]
         },
         {
           "sku": "CW2288-111",
-          "title": "White/White / 3.5",
+          "title": "White/White / 5",
           "options": [
             {
               "name": "Color",
@@ -2323,23 +1956,14 @@
             },
             {
               "name": "Size",
-              "value": "3.5"
+              "value": "5"
             }
           ],
-          "price": {
-            "price": 109.99,
-            "currency": "GBP",
-            "compare_at_price": null
-          },
+          "price": null,
           "available": true,
           "image_urls": [
             "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/4f37fca8-6bce-43e7-ad07-f57ae3c13142/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/deec30c7-92b4-46c9-8a7f-39a73eccdffa/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/6363d086-10e5-4892-adf0-182acd58d116/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/f65792df-0c9a-45a6-a54a-0f5e9ba2396f/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0480640f-fc4b-4940-a212-9fa2c7cf9f9d/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/973de232-7836-4315-89f6-61c42ae8ef7d/AIR+FORCE+1+%2707.png",
-            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/57eb2056-db31-4d64-a867-33b5c6d3ed90/AIR+FORCE+1+%2707.png"
+            "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,c_scale,w_300,u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b7d9211c-26e7-431a-ac24-b0540fb3c00f/AIR+FORCE+1+%2707.png"
           ]
         }
       ]

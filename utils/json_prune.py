@@ -22,22 +22,23 @@ MAX_LONG_TEXT_CHARS = 4000
 JSON_BUDGET_CHARS = 48_000
 JSON_LD_BUDGET_CHARS = 30_000
 MIN_DROPPABLE_CHARS = 1_500
-MAX_SHRINK_PASSES = 20
+MAX_SHRINK_PASSES = 60
 OVERSHOOT_FACTOR = 1.5
+MAX_IDENTIFIER_HOLDERS = 20
 
 
-def prune_blobs(blobs: list[tuple[str, object]], title_tokens: set[str]) -> dict[str, object]:
+def prune_blobs(blobs: list[tuple[str, object]], title_tokens: set[str], identifiers: set[str]) -> dict[str, object]:
     pruned: dict[str, object] = {}
     for label, blob in blobs:
         kept = prune_node(blob, "", title_tokens)
         if kept is not None:
             pruned[unique_label(label, pruned)] = kept
-    return shrink_to_budget(pruned, title_tokens, JSON_BUDGET_CHARS)
+    return shrink_to_budget(pruned, title_tokens, identifiers, JSON_BUDGET_CHARS)
 
 
-def prune_json_ld(items: list[dict], title_tokens: set[str]) -> list[dict]:
+def prune_json_ld(items: list[dict], title_tokens: set[str], identifiers: set[str]) -> list[dict]:
     kept = prune_node(items, "json-ld", title_tokens) or []
-    return shrink_to_budget({"json-ld": kept}, title_tokens, JSON_LD_BUDGET_CHARS).get("json-ld", [])
+    return shrink_to_budget({"json-ld": kept}, title_tokens, identifiers, JSON_LD_BUDGET_CHARS).get("json-ld", [])
 
 
 def prune_node(node: object, key: str, title_tokens: set[str]) -> object | None:
@@ -83,42 +84,74 @@ def node_score(node: object, key: str, title_tokens: set[str]) -> int:
     return score
 
 
-def shrink_to_budget(root: dict, title_tokens: set[str], budget: int) -> dict:
+def shrink_to_budget(root: dict, title_tokens: set[str], identifiers: set[str], budget: int) -> dict:
     for _ in range(MAX_SHRINK_PASSES):
-        candidates: list[tuple[float, int, list]] = []
-        size, _ = measure(root, "", [], title_tokens, candidates)
+        candidates: list[tuple[float, int, list, int]] = []
+        marks: dict[int, tuple[set[str], set[str]]] = {}
+        deepest: dict[int, int] = {}
+        mark_identifiers(root, identifiers, marks)
+        identifiers = rare_identifiers(identifiers, marks)
+        size, _, _ = measure(root, "", [], title_tokens, candidates, marks, identifiers, deepest)
         excess = size - budget
-        if excess <= 0 or not candidates:
+        eligible = [c for c in candidates if trimmable(node_at(root, c[2]), c[3], deepest)]
+        if excess <= 0 or not eligible:
             break
+        lowest = min(c[3] for c in eligible)
+        expendable = lowest < max(c[3] for c in candidates)
+        tier = [c for c in eligible if c[3] == lowest]
+        ordered = sorted(tier, key=lambda c: c[1]) if expendable else sorted(tier, key=lambda c: (c[0], -c[1]))
         chosen: list[tuple[list, int]] = []
-        for _, negative_size, path in sorted(candidates, key=lambda c: (c[0], -c[1])):
+        for _, negative_size, path, _ in ordered:
             subtree_size = -negative_size
             if overlaps(path, [c[0] for c in chosen]):
                 continue
-            if subtree_size > excess * OVERSHOOT_FACTOR and not isinstance(node_at(root, path), list):
+            if not expendable and subtree_size > excess * OVERSHOOT_FACTOR and not isinstance(node_at(root, path), list):
                 continue
             chosen.append((path, min(subtree_size, excess)))
             excess -= min(subtree_size, excess)
             if excess <= 0:
                 break
         if not chosen:
-            path = max(candidates, key=lambda c: c[1])[2]
-            chosen = [(path, excess)]
+            chosen = [(max(tier, key=lambda c: c[1])[2], excess)]
         for path, needed in sorted(chosen, key=lambda c: deletion_order(c[0]), reverse=True):
-            remove_or_truncate(root, path, needed, title_tokens)
+            node = node_at(root, path)
+            if isinstance(node, list):
+                truncate_list(node, needed, lowest, deepest)
+            elif expendable:
+                summarize_dict(root, path)
+            else:
+                delete_path(root, path)
     return root
 
 
-def remove_or_truncate(root: dict, path: list, needed: int, title_tokens: set[str]) -> None:
+def trimmable(node: object, level: int, deepest: dict[int, int]) -> bool:
+    if isinstance(node, list):
+        return len(node) >= 2 and any(deepest.get(id(item), level) <= level for item in node)
+    return deepest.get(id(node), level) <= level
+
+
+def truncate_list(node: list, needed: int, level: int, deepest: dict[int, int]) -> None:
+    order = sorted(range(len(node)), key=lambda i: (deepest.get(id(node[i]), level), -i))
+    removed = 0
+    remaining = len(node)
+    for index in order:
+        if remaining < 2 or removed >= needed or deepest.get(id(node[index]), level) > level:
+            break
+        item_size, _, _ = measure(node[index], "", [], set(), [], {}, set(), {})
+        node[index] = None
+        removed += item_size + 1
+        remaining -= 1
+    node[:] = [item for item in node if item is not None]
+
+
+def summarize_dict(root: dict, path: list) -> None:
     node = node_at(root, path)
-    if not isinstance(node, list) or len(node) < 2:
+    nested = [key for key, value in node.items() if isinstance(value, (dict, list))]
+    if not nested:
         delete_path(root, path)
         return
-    removed = 0
-    while len(node) > 1 and removed < needed:
-        item_size, _ = measure(node[-1], "", [], title_tokens, [])
-        node.pop()
-        removed += item_size + 1
+    for key in nested:
+        del node[key]
 
 
 def node_at(root: dict, path: list) -> object:
@@ -136,28 +169,98 @@ def overlaps(path: list, chosen: list[list]) -> bool:
     return any(path[: len(kept)] == kept or kept[: len(path)] == path for kept in chosen)
 
 
-def measure(node: object, key: str, path: list, title_tokens: set[str], out: list) -> tuple[int, int]:
+def mark_identifiers(node: object, identifiers: set[str], marks: dict[int, tuple[set[str], set[str]]]) -> set[str]:
+    own: set[str] = set()
+    found: set[str] = set()
+    if isinstance(node, dict):
+        text = " ".join(str(v).lower() for v in node.values() if isinstance(v, (str, int)))
+        own = {identifier for identifier in identifiers if identifier in text}
+        found |= own
+        for child in node.values():
+            found |= mark_identifiers(child, identifiers, marks)
+    elif isinstance(node, list):
+        for child in node:
+            found |= mark_identifiers(child, identifiers, marks)
+    if isinstance(node, (dict, list)):
+        marks[id(node)] = (own, found)
+    return found
+
+
+def rare_identifiers(identifiers: set[str], marks: dict[int, tuple[set[str], set[str]]]) -> set[str]:
+    holders = {identifier: sum(1 for own, _ in marks.values() if identifier in own) for identifier in identifiers}
+    return {identifier for identifier, count in holders.items() if 0 < count <= MAX_IDENTIFIER_HOLDERS}
+
+
+def sibling_protection(children: list, marks: dict[int, tuple[set[str], set[str]]], parent_protection: int, identifiers: set[str]) -> list[int]:
+    containers = [c for c in children if isinstance(c, (dict, list))]
+    if not containers or not identifiers:
+        return [parent_protection] * len(children)
+    subtree_sets = [marks.get(id(c), (set(), set()))[1] for c in containers]
+    relevant = set(identifiers)
+    if len(containers) >= 2:
+        relevant = {
+            identifier
+            for identifier in relevant
+            if 0 < sum(1 for found in subtree_sets if identifier in found) < len(containers)
+        }
+    if len(containers) < 2 and parent_protection > 0:
+        return [parent_protection] * len(children)
+    own_sets = [marks.get(id(c), (set(), set()))[0] for c in containers]
+    promoted = any(own & relevant for own in own_sets)
+    demote = promoted and parent_protection <= 0 and len(containers) >= 2
+    levels = []
+    for child in children:
+        if not isinstance(child, (dict, list)):
+            levels.append(parent_protection)
+            continue
+        own, found = marks.get(id(child), (set(), set()))
+        if own & relevant:
+            levels.append(parent_protection + 1)
+        elif demote and not (found & relevant):
+            levels.append(parent_protection - 1)
+        else:
+            levels.append(parent_protection)
+    return levels
+
+
+def measure(
+    node: object,
+    key: str,
+    path: list,
+    title_tokens: set[str],
+    out: list,
+    marks: dict[int, tuple[set[str], set[str]]],
+    identifiers: set[str],
+    deepest_map: dict[int, int],
+    protection: int = 0,
+) -> tuple[int, int, int]:
     score = 1 if is_signal_key(key) else 0
+    deepest = protection
     if isinstance(node, dict):
         size = 2
-        for child_key, child in node.items():
-            child_size, child_score = measure(child, child_key, path + [child_key], title_tokens, out)
+        levels = sibling_protection(list(node.values()), marks, protection, identifiers)
+        for (child_key, child), level in zip(node.items(), levels):
+            child_size, child_score, child_deepest = measure(child, child_key, path + [child_key], title_tokens, out, marks, identifiers, deepest_map, level)
             size += child_size + len(child_key) + 4
             score += child_score
+            deepest = max(deepest, child_deepest)
     elif isinstance(node, list):
         size = 2
-        for index, child in enumerate(node):
-            child_size, child_score = measure(child, key, path + [index], title_tokens, out)
+        levels = sibling_protection(node, marks, protection, identifiers)
+        for index, (child, level) in enumerate(zip(node, levels)):
+            child_size, child_score, child_deepest = measure(child, key, path + [index], title_tokens, out, marks, identifiers, deepest_map, level)
             size += child_size + 1
             score += child_score
+            deepest = max(deepest, child_deepest)
     else:
         size = len(json.dumps(node, ensure_ascii=False))
         if isinstance(node, str) and mentions_title(node, title_tokens):
             score += 3
-    droppable = isinstance(node, dict) or (isinstance(node, list) and len(node) >= 2)
-    if path and droppable and size >= MIN_DROPPABLE_CHARS:
-        out.append((score / size, -size, path))
-    return size, score
+    if isinstance(node, (dict, list)):
+        deepest_map[id(node)] = deepest
+        if path and size >= MIN_DROPPABLE_CHARS and (isinstance(node, dict) or len(node) >= 2):
+            out.append((score / size, -size, path, protection))
+    return size, score, deepest
 
 
 def delete_path(node: object, path: list) -> None:

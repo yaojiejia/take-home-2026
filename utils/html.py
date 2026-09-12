@@ -30,6 +30,19 @@ def extract_meta(tree: HTMLParser) -> dict[str, str]:
     return meta
 
 
+def page_identifiers(meta: dict[str, str]) -> set[str]:
+    identifiers: set[str] = set()
+    for key in ("og:url", "canonical"):
+        path = meta.get(key, "").split("?")[0].split("#")[0]
+        segments = [seg for seg in path.split("/")[3:] if looks_like_identifier(seg)]
+        identifiers.update(seg.lower() for seg in segments[-2:])
+    return identifiers
+
+
+def looks_like_identifier(segment: str) -> bool:
+    return len(segment) >= 3 and (any(ch.isdigit() for ch in segment) or ("-" in segment and len(segment) >= 8))
+
+
 def extract_json_ld(tree: HTMLParser) -> list[dict]:
     found: list[dict] = []
     for node in tree.css('script[type="application/ld+json"]'):
