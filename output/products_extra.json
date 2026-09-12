@@ -1,0 +1,1770 @@
+[
+  {
+    "id": "columbia-men-s-steens-mountain-2-0-full-zip-fleece-jacket",
+    "source_file": "columbia.html",
+    "source_url": "https://www.columbia.com/p/mens-steens-mountain-2.0-full-zip-fleece-jacket-1476671.html",
+    "model": "google/gemini-2.5-flash-lite",
+    "product": {
+      "name": "Men's Steens Mountain 2.0 Full Zip Fleece Jacket",
+      "price": {
+        "price": 45.5,
+        "currency": "USD",
+        "compare_at_price": 65.0
+      },
+      "description": "A Columbia classic with soft yet rugged fleece for chilly days from camp to trailhead.",
+      "key_features": [
+        "Zippered hand pockets secure valuables",
+        "Adjustable hem with interior drawcord for a custom fit",
+        "Center Back Length: 28.0 in / 71.1 cm",
+        "Uses: Everyday",
+        "Imported",
+        "Style # 1476671",
+        "Regular Fit: Universal, easy fit for comfortable range of motion.",
+        "Materials: 100% polyester MTR filament fleece",
+        "Care: Machine Wash, Do Not Bleach, Tumble Dry, Do Not Iron, Dryclean"
+      ],
+      "image_urls": [
+        "https://media.columbia.com/i/columbia/1476671_366_f_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_f_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_b_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_a1_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_a2_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_a3_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_a4_om",
+        "https://media.columbia.com/i/columbia/WM3220_004_a5_om",
+        "https://media.columbia.com/i/columbia/1476671_008_ht1_om",
+        "https://media.columbia.com/i/columbia/1476671_008_b_om",
+        "https://media.columbia.com/i/columbia/1476671_008_a1_om",
+        "https://media.columbia.com/i/columbia/1476671_008_a2_om",
+        "https://media.columbia.com/i/columbia/1476671_008_a3_om",
+        "https://media.columbia.com/i/columbia/1476671_008_a4_om",
+        "https://media.columbia.com/i/columbia/1476671_008_a5",
+        "https://media.columbia.com/i/columbia/1476671_010_ht1_om",
+        "https://media.columbia.com/i/columbia/1476671_010_b_om",
+        "https://media.columbia.com/i/columbia/1476671_010_a1_om",
+        "https://media.columbia.com/i/columbia/1476671_010_a2_om",
+        "https://media.columbia.com/i/columbia/1476671_010_a3_om",
+        "https://media.columbia.com/i/columbia/1476671_010_a4_om",
+        "https://media.columbia.com/i/columbia/1476671_010_v_pdp",
+        "https://media.columbia.com/i/columbia/1476671_010_lf1",
+        "https://media.columbia.com/i/columbia/1476671_011_ht1_om",
+        "https://media.columbia.com/i/columbia/1476671_011_b_om",
+        "https://media.columbia.com/i/columbia/1476671_011_a1_om",
+        "https://media.columbia.com/i/columbia/1476671_011_a2_om",
+        "https://media.columbia.com/i/columbia/1476671_011_a3_om",
+        "https://media.columbia.com/i/columbia/1476671_011_a4_om",
+        "https://media.columbia.com/i/columbia/1476671_011_v",
+        "https://media.columbia.com/i/columbia/1476671_018_f",
+        "https://media.columbia.com/i/columbia/1476671_018_b",
+        "https://media.columbia.com/i/columbia/1476671_018_a1",
+        "https://media.columbia.com/i/columbia/1476671_018_a2",
+        "https://media.columbia.com/i/columbia/1476671_018_a3",
+        "https://media.columbia.com/i/columbia/1476671_019_f",
+        "https://media.columbia.com/i/columbia/1476671_019_b",
+        "https://media.columbia.com/i/columbia/1476671_019_a1",
+        "https://media.columbia.com/i/columbia/1476671_020_b",
+        "https://media.columbia.com/i/columbia/1476671_020_a1",
+        "https://media.columbia.com/i/columbia/1476671_020_a2",
+        "https://media.columbia.com/i/columbia/1476671_020_a3",
+        "https://media.columbia.com/i/columbia/1476671_020_a4",
+        "https://media.columbia.com/i/columbia/1476671_020_a5",
+        "https://media.columbia.com/i/columbia/1476671_020_v",
+        "https://media.columbia.com/i/columbia/1476671_021_b",
+        "https://media.columbia.com/i/columbia/1476671_021_a1",
+        "https://media.columbia.com/i/columbia/1476671_022_f",
+        "https://media.columbia.com/i/columbia/1476671_022_b",
+        "https://media.columbia.com/i/columbia/1476671_022_a1",
+        "https://media.columbia.com/i/columbia/1476671_022_a2",
+        "https://media.columbia.com/i/columbia/1476671_022_a3",
+        "https://media.columbia.com/i/columbia/1476671_022_a4",
+        "https://media.columbia.com/i/columbia/1476671_024_ht1_om",
+        "https://media.columbia.com/i/columbia/1476671_024_b_om",
+        "https://media.columbia.com/i/columbia/1476671_024_a1_om",
+        "https://media.columbia.com/i/columbia/1476671_024_a2_om",
+        "https://media.columbia.com/i/columbia/1476671_024_a3_om",
+        "https://media.columbia.com/i/columbia/1476671_024_a4_om",
+        "https://media.columbia.com/i/columbia/1476671_024_v",
+        "https://media.columbia.com/i/columbia/1476671_026_f_om",
+        "https://media.columbia.com/i/columbia/1476671_026_b_om",
+        "https://media.columbia.com/i/columbia/1476671_026_a1_om",
+        "https://media.columbia.com/i/columbia/1476671_026_a2_om",
+        "https://media.columbia.com/i/columbia/1476671_026_a3_om",
+        "https://media.columbia.com/i/columbia/1476671_027_ht1_om",
+        "https://media.columbia.com/i/columbia/1476671_027_b_om",
+        "https://media.columbia.com/i/columbia/1476671_027_a1_om",
+        "https://media.columbia.com/i/columbia/1476671_027_a2_om",
+        "https://media.columbia.com/i/columbia/1476671_027_a3_om",
+        "https://media.columbia.com/i/columbia/1476671_027_a4_om",
+        "https://media.columbia.com/i/columbia/1476671_027_ht2_om",
+        "https://media.columbia.com/i/columbia/1476671_027_v_pdp",
+        "https://media.columbia.com/i/columbia/1476671_035_a1",
+        "https://media.columbia.com/i/columbia/1476671_035_a2"
+      ],
+      "video_url": "https://media.columbia.com/v/columbia/1476671_366_v_pdp/mp4_720p",
+      "category": {
+        "name": "Apparel & Accessories > Clothing > Outerwear > Coats & Jackets"
+      },
+      "brand": "Columbia",
+      "colors": [
+        "Greenscape",
+        "Deep Marine, Nimbus Grey",
+        "Surplus Green",
+        "Buffalo",
+        "Black, Olive Green",
+        "Black, Mountain Red",
+        "Shark, Stone Green",
+        "Ancient Fossil",
+        "Dark Mountain, Collegiate Navy",
+        "Black, Delta",
+        "Black",
+        "Black, Grill",
+        "Charcoal Heather",
+        "Tusk"
+      ],
+      "variants": [
+        {
+          "sku": "194894425572",
+          "title": "Deep Marine, Nimbus Grey / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Deep Marine, Nimbus Grey"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 21.98,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/WM3220_400_f"
+          ]
+        },
+        {
+          "sku": "886535736467",
+          "title": "Surplus Green / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Surplus Green"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 39.99,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_347_f"
+          ]
+        },
+        {
+          "sku": "886535736474",
+          "title": "Surplus Green / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Surplus Green"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "price": 39.99,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_347_f"
+          ]
+        },
+        {
+          "sku": "886535736481",
+          "title": "Surplus Green / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Surplus Green"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": {
+            "price": 39.99,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_347_f"
+          ]
+        },
+        {
+          "sku": "886535736498",
+          "title": "Surplus Green / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Surplus Green"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": {
+            "price": 39.99,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_347_f"
+          ]
+        },
+        {
+          "sku": "886535736504",
+          "title": "Surplus Green / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Surplus Green"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": {
+            "price": 39.99,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_347_f"
+          ]
+        },
+        {
+          "sku": "887921932920",
+          "title": "Buffalo / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Buffalo"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 60.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_225_f"
+          ]
+        },
+        {
+          "sku": "887921932937",
+          "title": "Buffalo / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Buffalo"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "price": 60.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_225_f"
+          ]
+        },
+        {
+          "sku": "887921932944",
+          "title": "Buffalo / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Buffalo"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": {
+            "price": 60.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_225_f"
+          ]
+        },
+        {
+          "sku": "887921932951",
+          "title": "Buffalo / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Buffalo"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": {
+            "price": 60.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_225_f"
+          ]
+        },
+        {
+          "sku": "887921932968",
+          "title": "Buffalo / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Buffalo"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": {
+            "price": 60.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_225_f"
+          ]
+        },
+        {
+          "sku": "192660253893",
+          "title": "Black, Olive Green / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Olive Green"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "price": 25.98,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_021_f"
+          ]
+        },
+        {
+          "sku": "192660253923",
+          "title": "Black, Olive Green / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Olive Green"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": {
+            "price": 25.98,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_021_f"
+          ]
+        },
+        {
+          "sku": "192660253886",
+          "title": "Black, Olive Green / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Olive Green"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": {
+            "price": 25.98,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_021_f"
+          ]
+        },
+        {
+          "sku": "192660253916",
+          "title": "Black, Olive Green / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Olive Green"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": {
+            "price": 25.98,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_021_f"
+          ]
+        },
+        {
+          "sku": "192660253855",
+          "title": "Black, Mountain Red / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Mountain Red"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 22.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_020_f"
+          ]
+        },
+        {
+          "sku": "193855461833",
+          "title": "Shark, Stone Green / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Shark, Stone Green"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "price": 32.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_024_f_om"
+          ]
+        },
+        {
+          "sku": "193855461840",
+          "title": "Shark, Stone Green / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Shark, Stone Green"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": {
+            "price": 32.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_024_f_om"
+          ]
+        },
+        {
+          "sku": "193855461857",
+          "title": "Shark, Stone Green / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Shark, Stone Green"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": {
+            "price": 32.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_024_f_om"
+          ]
+        },
+        {
+          "sku": "193855461864",
+          "title": "Shark, Stone Green / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Shark, Stone Green"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 32.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_024_f_om"
+          ]
+        },
+        {
+          "sku": "193855461871",
+          "title": "Shark, Stone Green / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Shark, Stone Green"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": {
+            "price": 32.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_024_f_om"
+          ]
+        },
+        {
+          "sku": "193855461956",
+          "title": "Ancient Fossil / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Ancient Fossil"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 22.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_271_f"
+          ]
+        },
+        {
+          "sku": "193855461963",
+          "title": "Ancient Fossil / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Ancient Fossil"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": {
+            "price": 22.5,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_271_f"
+          ]
+        },
+        {
+          "sku": "194894425596",
+          "title": "Dark Mountain, Collegiate Navy / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Dark Mountain, Collegiate Navy"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_479_f_om"
+          ]
+        },
+        {
+          "sku": "194894425602",
+          "title": "Dark Mountain, Collegiate Navy / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Dark Mountain, Collegiate Navy"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_479_f_om"
+          ]
+        },
+        {
+          "sku": "194894425619",
+          "title": "Dark Mountain, Collegiate Navy / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Dark Mountain, Collegiate Navy"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_479_f_om"
+          ]
+        },
+        {
+          "sku": "194894425626",
+          "title": "Dark Mountain, Collegiate Navy / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Dark Mountain, Collegiate Navy"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_479_f_om"
+          ]
+        },
+        {
+          "sku": "194894425633",
+          "title": "Dark Mountain, Collegiate Navy / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Dark Mountain, Collegiate Navy"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_479_f_om"
+          ]
+        },
+        {
+          "sku": "194895605799",
+          "title": "Black, Delta / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Delta"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_008_f_om"
+          ]
+        },
+        {
+          "sku": "194895605805",
+          "title": "Black, Delta / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Delta"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_008_f_om"
+          ]
+        },
+        {
+          "sku": "194895605812",
+          "title": "Black, Delta / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Delta"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_008_f_om"
+          ]
+        },
+        {
+          "sku": "194895605829",
+          "title": "Black, Delta / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Delta"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_008_f_om"
+          ]
+        },
+        {
+          "sku": "194895605836",
+          "title": "Black, Delta / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Delta"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_008_f_om"
+          ]
+        },
+        {
+          "sku": "886535736160",
+          "title": "Black / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_010_f_om"
+          ]
+        },
+        {
+          "sku": "886535736177",
+          "title": "Black / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_010_f_om"
+          ]
+        },
+        {
+          "sku": "886535736184",
+          "title": "Black / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_010_f_om"
+          ]
+        },
+        {
+          "sku": "886535736191",
+          "title": "Black / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_010_f_om"
+          ]
+        },
+        {
+          "sku": "886535736207",
+          "title": "Black / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_010_f_om"
+          ]
+        },
+        {
+          "sku": "886535736221",
+          "title": "Black, Grill / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Grill"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_011_f_om"
+          ]
+        },
+        {
+          "sku": "886535736238",
+          "title": "Black, Grill / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Grill"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_011_f_om"
+          ]
+        },
+        {
+          "sku": "886535736245",
+          "title": "Black, Grill / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Grill"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_011_f_om"
+          ]
+        },
+        {
+          "sku": "886535736252",
+          "title": "Black, Grill / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Grill"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_011_f_om"
+          ]
+        },
+        {
+          "sku": "886535736269",
+          "title": "Black, Grill / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Black, Grill"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_011_f_om"
+          ]
+        },
+        {
+          "sku": "886535736283",
+          "title": "Charcoal Heather / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Charcoal Heather"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_048_f_om"
+          ]
+        },
+        {
+          "sku": "886535736290",
+          "title": "Charcoal Heather / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Charcoal Heather"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_048_f_om"
+          ]
+        },
+        {
+          "sku": "886535736306",
+          "title": "Charcoal Heather / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Charcoal Heather"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_048_f_om"
+          ]
+        },
+        {
+          "sku": "886535736313",
+          "title": "Charcoal Heather / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Charcoal Heather"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_048_f_om"
+          ]
+        },
+        {
+          "sku": "886535736320",
+          "title": "Charcoal Heather / XXL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Charcoal Heather"
+            },
+            {
+              "name": "Size",
+              "value": "XXL"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_048_f_om"
+          ]
+        },
+        {
+          "sku": "886535736405",
+          "title": "Tusk / S",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Tusk"
+            },
+            {
+              "name": "Size",
+              "value": "S"
+            }
+          ],
+          "price": {
+            "price": 23.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_221_f_om"
+          ]
+        },
+        {
+          "sku": "886535736412",
+          "title": "Tusk / M",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Tusk"
+            },
+            {
+              "name": "Size",
+              "value": "M"
+            }
+          ],
+          "price": {
+            "price": 23.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_221_f_om"
+          ]
+        },
+        {
+          "sku": "886535736429",
+          "title": "Tusk / L",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Tusk"
+            },
+            {
+              "name": "Size",
+              "value": "L"
+            }
+          ],
+          "price": {
+            "price": 23.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_221_f_om"
+          ]
+        },
+        {
+          "sku": "886535736436",
+          "title": "Tusk / XL",
+          "options": [
+            {
+              "name": "Color",
+              "value": "Tusk"
+            },
+            {
+              "name": "Size",
+              "value": "XL"
+            }
+          ],
+          "price": {
+            "price": 23.0,
+            "currency": "USD",
+            "compare_at_price": null
+          },
+          "available": false,
+          "image_urls": [
+            "https://media.columbia.com/i/columbia/1476671_221_f_om"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "gymshark-crest-hoodie",
+    "source_file": "gymshark.html",
+    "source_url": "https://www.gymshark.com",
+    "model": "google/gemini-2.5-flash-lite",
+    "product": {
+      "name": "Crest Hoodie",
+      "price": {
+        "price": 40.0,
+        "currency": "USD",
+        "compare_at_price": null
+      },
+      "description": "CONSISTENTLY COMFORTABLE, CASUALLY STYLISHVersatile designs made from soft, durable fabrics mean you can wear Crest anywhere and pair it with anything. So if comfort’s your goal, Crest’s your new go-to. Durable, soft cotton-based fabric Versatile design & colours make it great for gym or rest day Durable embroidered logo lasts through every wear Adjustable drawcord hood Store your stuff with open side pockets Comfortable & warm with soft, brushed back fleece inside SIZE & FIT Slim fit Model is 5'10\" and wears size M MATERIALS & CARE 80% Cotton, 20% Recycled Polyester 285gsm SKU: A2A4G-BBBB",
+      "key_features": [
+        "Durable, soft cotton-based fabric",
+        "Versatile design & colours make it great for gym or rest day",
+        "Durable embroidered logo lasts through every wear",
+        "Adjustable drawcord hood",
+        "Store your stuff with open side pockets",
+        "Comfortable & warm with soft, brushed back fleece inside",
+        "Slim fit",
+        "80% Cotton, 20% Recycled Polyester",
+        "285gsm",
+        "Three-piece hood with adjustable drawcord",
+        "Ribbed hem and cuffs for a clean fit"
+      ],
+      "image_urls": [
+        "http://cdn.shopify.com/s/files/1/0156/6146/files/images-A2A4G_BBBB_1.jpg?v=1762966577",
+        "https://cdn.shopify.com/s/files/1/0156/6146/files/images-ANNOTATED_PDP_24775851223.jpg?v=1762966577",
+        "https://cdn.shopify.com/s/files/1/0156/6146/files/images-A2A4G_BBBB_3.jpg?v=1762966577",
+        "https://cdn.shopify.com/s/files/1/0156/6146/files/images-A2A4G_BBBB_4.jpg?v=1762966577",
+        "https://cdn.shopify.com/s/files/1/0156/6146/files/images-A2A4G_BBBB_5.jpg?v=1762966577",
+        "https://cdn.shopify.com/s/files/1/0156/6146/files/images-A2A4G_BBBB_6.jpg?v=1762966577"
+      ],
+      "video_url": null,
+      "category": {
+        "name": "Apparel & Accessories > Clothing > Shirts & Tops"
+      },
+      "brand": "Gymshark",
+      "colors": [
+        "Black",
+        "Navy",
+        "Light Grey Marl"
+      ],
+      "variants": [
+        {
+          "sku": "A2A4G-BBBB-XS",
+          "title": "xs / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xs"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-BBBB-S",
+          "title": "s / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "s"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-BBBB-M",
+          "title": "m / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "m"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-BBBB-L",
+          "title": "l / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "l"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-BBBB-XL",
+          "title": "xl / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xl"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-BBBB-XXL",
+          "title": "xxl / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xxl"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-BBBB-3XL",
+          "title": "3xl / Black",
+          "options": [
+            {
+              "name": "Size",
+              "value": "3xl"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": []
+        },
+        {
+          "sku": "A2A4G-UBCY-XS",
+          "title": "xs / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xs"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-UBCY-S",
+          "title": "s / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "s"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-UBCY-M",
+          "title": "m / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "m"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-UBCY-L",
+          "title": "l / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "l"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-UBCY-XL",
+          "title": "xl / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xl"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-UBCY-XXL",
+          "title": "xxl / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xxl"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-UBCY-3XL",
+          "title": "3xl / Navy",
+          "options": [
+            {
+              "name": "Size",
+              "value": "3xl"
+            },
+            {
+              "name": "Color",
+              "value": "Navy"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieNavyA2A4G_UBCY_1506.jpg?v=1776693081"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-XS",
+          "title": "xs / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xs"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-S",
+          "title": "s / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "s"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-M",
+          "title": "m / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "m"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-L",
+          "title": "l / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "l"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-XL",
+          "title": "xl / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xl"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-XXL",
+          "title": "xxl / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "xxl"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": false,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        },
+        {
+          "sku": "A2A4G-GBFG-3XL",
+          "title": "3xl / Light Grey Marl",
+          "options": [
+            {
+              "name": "Size",
+              "value": "3xl"
+            },
+            {
+              "name": "Color",
+              "value": "Light Grey Marl"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://cdn.shopify.com/s/files/1/0156/6146/files/images-CrestHoodieLightGreyMarlA2A4G_GBFG_1531.jpg?v=1776692938"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "samsung-t9-portable-ssd-1tb-usb-3-2-gen-2x2-external-solid-state-drive-seq-read-",
+    "source_file": "newegg.html",
+    "source_url": "https://www.newegg.com/samsung-t9-1tb-usb-3-2-gen-2x2/p/N82E16820147880",
+    "model": "google/gemini-2.5-flash-lite",
+    "product": {
+      "name": "SAMSUNG T9 Portable SSD 1TB, USB 3.2 Gen 2x2 External Solid State Drive, Seq. Read Speeds Up to 2,000MB/s for Gaming, Students and Professionals, MU-PG1T0B/AM, Black",
+      "price": {
+        "price": 254.99,
+        "currency": "USD",
+        "compare_at_price": 287.99
+      },
+      "description": "Experience lightning-fast performance with the SAMSUNG T9 Portable SSD 1TB. Enjoy USB 3.2 Gen 2x2 speeds up to 2,000MB/s, perfect for gaming and creative projects. Stay cool with dynamic thermal guard technology, ensuring reliability and compatibility across devices.",
+      "key_features": [
+        "NONSTOP SPEED: Race through projects with our fastest SSD for creators; Load, edit and transfer with sustained read and write speeds of up to 2,000MB/s1; The T9 Portable SSD performs at high speeds even during longer processes",
+        "DYNAMIC THERMAL GUARD: When you’re elbow-deep in a passion project, the T9 Portable SSD stays cool; Its advanced thermal solution withstands and controls heat to keep the SSD at ideal temperatures—even in heavy use2",
+        "ADAPTS TO EVERY NEED: Whether you’re using a desktop, camera or a gaming console3, count on the T9 Portable SSD for extensive compatibility; It’s a true team player when it comes to heavy-duty application usage or file-saving",
+        "STRONG. SOLID. STABLE: From concept to completion – the T9 Portable SSD gives you the longevity to last through heavy use with one convenient drive that dares to go the distance",
+        "WORKS LIKE MAGIC: Your T9 Portable SSD performs like new with the always up-to-date Magician Software;",
+        "Capacity: 1TB",
+        "Interface: USB 3.2 Gen 2x2",
+        "Color: Black",
+        "Max Sequential Read: Up to 2000 MBps",
+        "Max Sequential Write: Up to 1950 MBps",
+        "Operating Temperature: 0°C ~ +60°C",
+        "Storage Temperature: -40°C ~ +85°C",
+        "Operating Humidity: 5% to 95% non-condensing",
+        "Max Shock Resistance: 1,500G, duration: 0.5ms, 3 axis (Non-Operating)",
+        "Max Vibration Resistance: 20~2,000Hz, 20G (Non-Operating)",
+        "Width: 88mm",
+        "Depth: 60mm",
+        "Height: 14mm",
+        "Weight: 122g",
+        "Package Content: Software: Samsung Portable SSD 1.0, Samsung Magician Software"
+      ],
+      "image_urls": [
+        "https://c1.neweggimages.com/productimage/nb640/20-147-880-01.jpg",
+        "https://c1.neweggimages.com/productimage/nb640/20-147-880-02.jpg",
+        "https://c1.neweggimages.com/productimage/nb640/20-147-880-03.jpg",
+        "https://c1.neweggimages.com/productimage/nb640/20-147-880-04.jpg",
+        "https://c1.neweggimages.com/productimage/nb640/20-147-880-05.jpg",
+        "https://c1.neweggimages.com/productimage/nb640/20-147-880-06.jpg"
+      ],
+      "video_url": null,
+      "category": {
+        "name": "Electronics > Computers"
+      },
+      "brand": "SAMSUNG",
+      "colors": [
+        "Black"
+      ],
+      "variants": [
+        {
+          "sku": "MU-PG1T0B/AM",
+          "title": "1TB / Black",
+          "options": [
+            {
+              "name": "Capacity",
+              "value": "1TB"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": true,
+          "image_urls": [
+            "https://c1.neweggimages.com/productimage/nb640/20-147-880-01.jpg",
+            "https://c1.neweggimages.com/productimage/nb640/20-147-880-02.jpg",
+            "https://c1.neweggimages.com/productimage/nb640/20-147-880-03.jpg",
+            "https://c1.neweggimages.com/productimage/nb640/20-147-880-04.jpg",
+            "https://c1.neweggimages.com/productimage/nb640/20-147-880-05.jpg",
+            "https://c1.neweggimages.com/productimage/nb640/20-147-880-06.jpg"
+          ]
+        },
+        {
+          "sku": "MU-PG2T0B/AM",
+          "title": "2TB / Black",
+          "options": [
+            {
+              "name": "Capacity",
+              "value": "2TB"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": null,
+          "image_urls": []
+        },
+        {
+          "sku": "MU-PG4T0B/AM",
+          "title": "4TB / Black",
+          "options": [
+            {
+              "name": "Capacity",
+              "value": "4TB"
+            },
+            {
+              "name": "Color",
+              "value": "Black"
+            }
+          ],
+          "price": null,
+          "available": null,
+          "image_urls": []
+        }
+      ]
+    }
+  }
+]
