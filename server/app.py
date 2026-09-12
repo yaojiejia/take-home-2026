@@ -19,6 +19,7 @@ class CatalogItem(BaseModel):
     brand: str
     price: Price
     image_url: str | None
+    hover_image_url: str | None
     category: str
     color_count: int
     variant_count: int
@@ -41,6 +42,7 @@ def catalog_item(result: ExtractionResult) -> CatalogItem:
         brand=product.brand,
         price=product.price,
         image_url=product.image_urls[0] if product.image_urls else None,
+        hover_image_url=product.image_urls[1] if len(product.image_urls) > 1 else None,
         category=product.category.name,
         color_count=len(product.colors),
         variant_count=len(product.variants),
