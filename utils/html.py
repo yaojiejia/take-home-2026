@@ -4,6 +4,12 @@ import re
 from selectolax.parser import HTMLParser
 
 WINDOW_ASSIGN_RE = re.compile(r"window\.([A-Za-z_$][\w$]*)\s*=\s*(?=[\[{])")
+RSC_PUSH_RE = re.compile(r"__next_f\.push\(\[\d+,\s*(\"(?:[^\"\\]|\\.)*\")\s*\]\)")
+RSC_ROW_RE = re.compile(r"([0-9a-fA-F]+):")
+RSC_TEXT_RE = re.compile(r"T([0-9a-fA-F]+),")
+RSC_REF_RE = re.compile(r"^\$[0-9a-fA-F]+$")
+MAX_RSC_REF_DEPTH = 8
+RSC_SKIP_KEYS = {"classname", "class", "style", "src", "srcset", "sizes", "href", "id", "key", "rel", "as", "type", "loading", "decoding", "fetchpriority", "width", "height", "viewbox", "d", "fill", "stroke", "xmlns", "target", "role", "tabindex", "name", "value", "for", "action", "method", "dangerouslysetinnerhtml", "__html"}
 TEXT_BUDGET_CHARS = 12_000
 MIN_BLOB_CHARS = 200
 
@@ -82,6 +88,104 @@ def extract_embedded_json(tree: HTMLParser) -> list[tuple[str, object]]:
             if isinstance(parsed, (dict, list)) and len(json.dumps(parsed)) >= MIN_BLOB_CHARS:
                 blobs.append((match.group(1), parsed))
     return blobs
+
+
+def extract_rsc(tree: HTMLParser) -> tuple[dict[str, object], str]:
+    chunks: list[str] = []
+    for node in tree.css("script"):
+        text = node.text() or ""
+        if "__next_f.push" not in text:
+            continue
+        for match in RSC_PUSH_RE.finditer(text):
+            decoded = try_parse_json(match.group(1))
+            if isinstance(decoded, str):
+                chunks.append(decoded)
+    if not chunks:
+        return {}, ""
+    rows = parse_rsc_payload("".join(chunks))
+    lines: list[str] = []
+    for _, item in rows:
+        rsc_text(item, lines, inside_element=False)
+    deduped: list[str] = []
+    for line in lines:
+        if line and line not in deduped[-5:]:
+            deduped.append(line)
+    data = inline_rsc_references({row_id: item for row_id, item in rows if isinstance(item, (dict, list))})
+    return data, "\n".join(deduped)[:TEXT_BUDGET_CHARS]
+
+
+def inline_rsc_references(rows: dict[str, object]) -> dict[str, object]:
+    used: set[str] = set()
+
+    def expand(node: object, depth: int) -> object:
+        if isinstance(node, str) and RSC_REF_RE.match(node):
+            row_id = node[1:]
+            if row_id in rows and row_id not in used and depth < MAX_RSC_REF_DEPTH:
+                used.add(row_id)
+                return expand(rows[row_id], depth + 1)
+            return node
+        if isinstance(node, list):
+            return [expand(child, depth) for child in node]
+        if isinstance(node, dict):
+            return {key: expand(child, depth) for key, child in node.items()}
+        return node
+
+    expanded = {}
+    for row_id, item in rows.items():
+        if row_id in used:
+            continue
+        used.add(row_id)
+        expanded[f"r{row_id}"] = expand(item, 0)
+    return expanded
+
+
+def parse_rsc_payload(payload: str) -> list[tuple[str, object]]:
+    items: list[tuple[str, object]] = []
+    pos = 0
+    while pos < len(payload):
+        row = RSC_ROW_RE.match(payload, pos)
+        if row:
+            row_id = row.group(1)
+            pos = row.end()
+            long_text = RSC_TEXT_RE.match(payload, pos)
+            if long_text:
+                start = long_text.end()
+                length = int(long_text.group(1), 16)
+                items.append((row_id, payload[start : start + length]))
+                pos = start + length
+                continue
+            if pos < len(payload) and payload[pos] in "[{":
+                try:
+                    parsed, end = json.JSONDecoder().raw_decode(payload, pos)
+                    items.append((row_id, parsed))
+                    pos = end
+                except (json.JSONDecodeError, ValueError):
+                    pass
+        newline = payload.find("\n", pos)
+        pos = len(payload) if newline < 0 else newline + 1
+    return items
+
+
+CODE_HINT_RE = re.compile(r"function\s*\(|=>|\bvar\s|\bdocument\.|\bwindow\.|<[a-z]+[\s>]|\{\"")
+
+
+def rsc_text(node: object, out: list[str], inside_element: bool) -> None:
+    if isinstance(node, str):
+        if inside_element and len(node) > 1 and not node.startswith("$") and "://" not in node and not node.startswith("/") and not CODE_HINT_RE.search(node):
+            out.append(clean_space(node))
+    elif isinstance(node, list):
+        if len(node) in (3, 4) and node[0] == "$" and isinstance(node[1], str):
+            if node[1] in ("script", "style", "link", "meta", "noscript", "template"):
+                return
+            props = node[-1] if isinstance(node[-1], dict) else {}
+            rsc_text(props.get("children"), out, inside_element=True)
+            return
+        for child in node:
+            rsc_text(child, out, inside_element)
+    elif isinstance(node, dict) and inside_element:
+        for key, child in node.items():
+            if key.lower() not in RSC_SKIP_KEYS:
+                rsc_text(child, out, inside_element)
 
 
 def extract_visible_text(tree: HTMLParser) -> str:
