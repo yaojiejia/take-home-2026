@@ -30,6 +30,20 @@ class Price(BaseModel):
     # If a product is on sale, this is the original price
     compare_at_price: float | None = None
 
+class VariantOption(BaseModel):
+    name: str
+    value: str
+
+
+class Variant(BaseModel):
+    sku: str | None = None
+    title: str | None = None
+    options: list[VariantOption]
+    price: Price | None = None
+    available: bool | None = None
+    image_urls: list[str] = []
+
+
 # This is the final product schema that you need to output. 
 # You may add additional models as needed.
 class Product(BaseModel):
@@ -42,7 +56,7 @@ class Product(BaseModel):
     category: Category
     brand: str
     colors: list[str]
-    variants: list[Any] # TODO (@dev): Define variant model
+    variants: list[Variant]
 
 class ImageCandidate(BaseModel):
     id: int
@@ -59,20 +73,6 @@ class PageBundle(BaseModel):
     visible_text: str
     images: list[ImageCandidate]
     videos: list[str]
-
-
-class VariantOption(BaseModel):
-    name: str
-    value: str
-
-
-class Variant(BaseModel):
-    sku: str | None = None
-    title: str | None = None
-    options: list[VariantOption]
-    price: Price | None = None
-    available: bool | None = None
-    image_urls: list[str] = []
 
 
 class ExtractedVariant(BaseModel):
