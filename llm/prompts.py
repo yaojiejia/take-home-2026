@@ -34,7 +34,8 @@ Field guidance:
   size pair the page data provides. If the page shows one colourway with a size list, list each
   size. Name each option the way the page does ("Color", "Size", "Length", "Fit", "Material",
   and so on) and use the page's own values. Every option value must appear somewhere in the page
-  representation. If the data lists SKUs without size labels, do not invent sizes: use whatever
+  representation. When the page identifies a colour both by a code and by a name, the option
+  value is the name; the code belongs in the SKU or title. If the data lists SKUs without size labels, do not invent sizes: use whatever
   dimension the data does provide, or emit one variant per SKU without a size option. Give each
   variant its SKU if present, its own price only if it differs from the product price,
   availability if known, and the ids of images that are specific to it. Do not invent
