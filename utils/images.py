@@ -16,7 +16,10 @@ SIZE_SUFFIX_RE = re.compile(r"([-_@](\d{1,4}x\d{0,4}|\d{3,4}w?|\d+x|mini|thumb|t
 LARGE_WORDS_RE = re.compile(r"(?<![a-z])(orig|original|max|zoom|full|large|xl|xxl|big|hires|hi-res)(?![a-z])")
 SMALL_WORDS_RE = re.compile(r"(?<![a-z])(mini|thumb|thumbnail|small|square|tiny|icon|xs|sm)(?![a-z])")
 LABEL_KEY_RE = re.compile(r"colou?r|name|title|sku|style|code|label|variant|size|alt|option", re.I)
-CHROME_CLASS_RE = re.compile(r"nav|menu|footer|flyout|dropdown|breadcrumb|cookie|modal|popup|newsletter|signup", re.I)
+CHROME_TOKENS = {
+    "nav", "navbar", "navigation", "subnav", "menu", "megamenu", "submenu", "footer",
+    "flyout", "dropdown", "breadcrumb", "breadcrumbs", "cookie", "newsletter", "signup",
+}
 META_IMAGE_KEYS = ("og:image", "og:image:url", "og:image:secure_url", "twitter:image", "twitter:image:src")
 IMAGE_ATTRS = ("src", "data-src", "srcset", "data-srcset", "data-original", "data-lazy", "data-zoom-image", "data-large", "data-image")
 IMAGE_NOISE_WORDS = ("logo", "icon", "sprite", "flag", "badge", "payment", "placeholder", "pixel", "loading", "spinner", "avatar", "favicon")
@@ -206,7 +209,7 @@ def inside_site_chrome(node: Node) -> bool:
         if current.tag in ("nav", "footer"):
             return True
         label = " ".join(current.attributes.get(attr) or "" for attr in ("id", "class", "role"))
-        if CHROME_CLASS_RE.search(label):
+        if CHROME_TOKENS & set(re.split(r"[^a-z0-9]+", label.lower())):
             return True
         current = current.parent
     return False
