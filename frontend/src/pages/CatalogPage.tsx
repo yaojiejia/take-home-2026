@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
-import { fetchCatalog } from "@/api"
+import { fetchCatalog, peekCatalog } from "@/api"
 import { CategoryMenu, inCategory } from "@/components/CategoryMenu"
 import { ProductCard } from "@/components/ProductCard"
+import { Skeleton } from "@/components/Skeleton"
 import type { CatalogItem } from "@/types"
 
 const COLUMN_CHOICES = [2, 3, 4] as const
@@ -22,7 +23,7 @@ function storedColumns(): number {
 }
 
 export function CatalogPage() {
-  const [items, setItems] = useState<CatalogItem[] | null>(null)
+  const [items, setItems] = useState<CatalogItem[] | null>(peekCatalog)
   const [error, setError] = useState<string | null>(null)
   const [columns, setColumns] = useState(storedColumns)
   const [params, setParams] = useSearchParams()
@@ -32,6 +33,10 @@ export function CatalogPage() {
   useEffect(() => {
     fetchCatalog().then(setItems).catch((e: Error) => setError(e.message))
   }, [])
+
+  useEffect(() => {
+    document.title = category ? `${category.split(" > ").pop()} · Catalog` : "Catalog"
+  }, [category])
 
   function setFilter(key: "category" | "brand", value: string) {
     const next = new URLSearchParams(params)
@@ -57,7 +62,7 @@ export function CatalogPage() {
     return <p className="text-[13px] uppercase text-red-600">Could not load the catalog: {error}</p>
   }
   if (items === null) {
-    return <p className="text-[13px] uppercase text-neutral-500">Loading</p>
+    return <CatalogSkeleton columns={columns} />
   }
 
   const visible = items.filter((item) => inCategory(item, category) && (!brand || item.brand === brand))
@@ -122,6 +127,33 @@ export function CatalogPage() {
           </div>
         )}
       </section>
+    </div>
+  )
+}
+
+function CatalogSkeleton({ columns }: { columns: number }) {
+  return (
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-12">
+      <div className="space-y-4">
+        <Skeleton className="h-4 w-28" />
+        <Skeleton className="h-4 w-40" />
+        <Skeleton className="h-4 w-32" />
+        <Skeleton className="h-4 w-36" />
+      </div>
+      <div>
+        <div className="border-b border-black pb-2">
+          <Skeleton className="h-4 w-32" />
+        </div>
+        <div className={`grid gap-x-[3px] gap-y-6 pt-[3px] ${COLUMN_CLASSES[columns]}`}>
+          {Array.from({ length: 6 }, (_, i) => (
+            <div key={i} className="space-y-2">
+              <Skeleton className="aspect-[3/4] w-full" />
+              <Skeleton className="h-3 w-3/4" />
+              <Skeleton className="h-3 w-16" />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

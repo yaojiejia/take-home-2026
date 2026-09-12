@@ -1,20 +1,18 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, ScrollRestoration } from "react-router-dom"
 
 export function Layout() {
   return (
     <div className="min-h-screen bg-white text-black">
+      <ScrollRestoration />
       <header className="px-4 pt-5 pb-3 md:px-8">
         <div className="flex items-start justify-between">
-          <Link to="/" className="text-[40px] font-black leading-none tracking-[-0.06em] md:text-[56px]">
+          <Link to="/" viewTransition className="text-[40px] font-black leading-none tracking-[-0.06em] md:text-[56px]">
             CATALOG
           </Link>
-          <nav className="flex gap-6 pt-2 text-[13px] uppercase tracking-wide">
-            <Link to="/" className="hover:underline">
+          <nav className="pt-2 text-[13px] uppercase tracking-wide">
+            <Link to="/" viewTransition className="hover:underline">
               All products
             </Link>
-            <a href="/api/products" className="hover:underline" target="_blank" rel="noreferrer">
-              API
-            </a>
           </nav>
         </div>
       </header>

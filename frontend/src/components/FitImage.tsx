@@ -9,7 +9,7 @@ type Props = {
 }
 
 export function FitImage({ src, alt, className = "", loading }: Props) {
-  const [fit, setFit] = useState<"cover" | "contain">("contain")
+  const [fit, setFit] = useState<"cover" | "contain" | null>(null)
 
   function measure(event: SyntheticEvent<HTMLImageElement>) {
     const img = event.currentTarget
@@ -22,7 +22,7 @@ export function FitImage({ src, alt, className = "", loading }: Props) {
       alt={alt}
       onLoad={measure}
       loading={loading}
-      className={`h-full w-full ${fit === "cover" ? "object-cover" : "object-contain"} ${className}`}
+      className={`h-full w-full transition-opacity duration-500 ${fit === "cover" ? "object-cover" : "object-contain"} ${fit ? "opacity-100" : "opacity-0"} ${className}`}
     />
   )
 }

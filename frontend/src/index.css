@@ -14,3 +14,21 @@ body {
     letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
 }
+
+:focus-visible {
+    outline: 1px solid #000;
+    outline-offset: 2px;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 180ms;
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}

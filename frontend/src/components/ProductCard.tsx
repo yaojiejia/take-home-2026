@@ -5,8 +5,8 @@ import type { CatalogItem } from "@/types"
 
 export function ProductCard({ item }: { item: CatalogItem }) {
   return (
-    <Link to={`/products/${encodeURIComponent(item.id)}`} className="group block">
-      <div className="relative aspect-[3/4] overflow-hidden bg-white">
+    <Link to={`/products/${encodeURIComponent(item.id)}`} viewTransition className="group block">
+      <div className="relative aspect-[3/4] overflow-hidden bg-neutral-50">
         {item.image_url ? (
           <>
             <FitImage src={item.image_url} alt={item.name} loading="lazy" />

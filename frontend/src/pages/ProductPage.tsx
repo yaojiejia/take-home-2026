@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { fetchProduct } from "@/api"
+import { ApiError, fetchProduct, peekProduct } from "@/api"
 import { Gallery } from "@/components/Gallery"
 import { PriceTag } from "@/components/PriceTag"
+import { Skeleton } from "@/components/Skeleton"
 import { VariantPicker } from "@/components/VariantPicker"
 import type { ProductRecord, Variant } from "@/types"
 
@@ -19,22 +20,47 @@ function groupByAxes(variants: Variant[]): Variant[][] {
 
 export function ProductPage() {
   const { id } = useParams()
-  const [record, setRecord] = useState<ProductRecord | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [record, setRecord] = useState<ProductRecord | null>(() => (id ? peekProduct(id) : null))
+  const [error, setError] = useState<Error | null>(null)
   const [variant, setVariant] = useState<Variant | null>(null)
 
   useEffect(() => {
     if (!id) return
-    setRecord(null)
+    let active = true
+    setRecord(peekProduct(id))
+    setError(null)
     setVariant(null)
-    fetchProduct(id).then(setRecord).catch((e: Error) => setError(e.message))
+    fetchProduct(id)
+      .then((result) => active && setRecord(result))
+      .catch((e: Error) => active && setError(e))
+    return () => {
+      active = false
+    }
   }, [id])
 
+  useEffect(() => {
+    document.title = record ? `${record.product.name} · Catalog` : "Catalog"
+    return () => {
+      document.title = "Catalog"
+    }
+  }, [record])
+
   if (error) {
-    return <p className="text-[13px] uppercase text-red-600">Could not load this product: {error}</p>
+    const missing = error instanceof ApiError && error.status === 404
+    return (
+      <div className="space-y-4 pt-16 text-center">
+        <p className="text-[16px] uppercase">{missing ? "We couldn't find that product" : "Something went wrong"}</p>
+        <p className="text-[13px] text-neutral-500">
+          {missing ? "It may have been removed or the link is incomplete." : error.message}
+        </p>
+        <Link to="/" viewTransition className="inline-block border border-black px-6 py-3 text-[13px] uppercase hover:bg-black hover:text-white">
+          Back to all products
+        </Link>
+      </div>
+    )
   }
   if (record === null) {
-    return <p className="text-[13px] uppercase text-neutral-500">Loading</p>
+    return <ProductSkeleton />
   }
 
   const product = record.product
@@ -48,13 +74,17 @@ export function ProductPage() {
   return (
     <div>
       <nav className="flex flex-wrap gap-x-2 border-b border-black pb-2 text-[13px] uppercase text-neutral-500">
-        <Link to="/" className="text-black hover:underline">
+        <Link to="/" viewTransition className="text-black hover:underline">
           All products
         </Link>
         {crumbs.map((crumb, i) => (
           <span key={crumb} className="flex gap-x-2">
             <span>/</span>
-            <Link to={`/?category=${encodeURIComponent(crumbs.slice(0, i + 1).join(" > "))}`} className="hover:text-black">
+            <Link
+              to={`/?category=${encodeURIComponent(crumbs.slice(0, i + 1).join(" > "))}`}
+              viewTransition
+              className="hover:text-black"
+            >
               {crumb}
             </Link>
           </span>
@@ -94,13 +124,6 @@ export function ProductPage() {
               </section>
             ))}
 
-            <button
-              type="button"
-              className="w-full border border-black py-3 text-[13px] uppercase tracking-wide transition-colors hover:bg-black hover:text-white"
-            >
-              Add
-            </button>
-
             <section className="space-y-3 border-t border-neutral-200 pt-5">
               {paragraphs.map((text, i) => (
                 <p key={i} className="text-[13px] leading-relaxed">
@@ -127,15 +150,47 @@ export function ProductPage() {
               </section>
             )}
 
-            <footer className="flex flex-wrap gap-x-4 gap-y-1 border-t border-neutral-200 pt-5 text-[12px] uppercase text-neutral-500">
+            <footer className="border-t border-neutral-200 pt-5 text-[12px] uppercase text-neutral-500">
               {record.source_url && (
-                <a href={record.source_url} target="_blank" rel="noreferrer" className="hover:underline">
-                  Original page
+                <a href={record.source_url} target="_blank" rel="noreferrer" className="hover:text-black hover:underline">
+                  View on {new URL(record.source_url).hostname.replace(/^www\./, "")}
                 </a>
               )}
-              <span>{record.source_file}</span>
-              <span>{record.model}</span>
             </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ProductSkeleton() {
+  return (
+    <div>
+      <div className="border-b border-black pb-2">
+        <Skeleton className="h-4 w-64" />
+      </div>
+      <div className="grid grid-cols-1 gap-8 pt-[3px] lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-12">
+        <Skeleton className="aspect-[3/4] w-full" />
+        <div className="space-y-6 lg:max-w-md">
+          <div className="space-y-3">
+            <Skeleton className="h-3 w-20" />
+            <Skeleton className="h-6 w-4/5" />
+            <Skeleton className="h-4 w-24" />
+          </div>
+          <div className="space-y-3">
+            <Skeleton className="h-3 w-12" />
+            <div className="flex gap-[3px]">
+              <Skeleton className="h-10 w-12" />
+              <Skeleton className="h-10 w-12" />
+              <Skeleton className="h-10 w-12" />
+              <Skeleton className="h-10 w-12" />
+            </div>
+          </div>
+          <div className="space-y-2 pt-5">
+            <Skeleton className="h-3 w-full" />
+            <Skeleton className="h-3 w-full" />
+            <Skeleton className="h-3 w-2/3" />
           </div>
         </div>
       </div>
