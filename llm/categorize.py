@@ -4,6 +4,7 @@ from pathlib import Path
 
 from llm import ai
 from llm.prompts import CATEGORY_PROMPT
+from llm.settings import request_options
 from models import Category, CategoryChoice
 
 TAXONOMY_FILE = Path(__file__).resolve().parent.parent / "categories.txt"
@@ -11,7 +12,6 @@ SEPARATOR = " > "
 MAX_OPTION_CHARS = 50_000
 MAX_STEPS = 6
 MAX_REJECTED = 2
-SAMPLING = {"temperature": 0}
 
 
 def load_taxonomy() -> tuple[list[str], dict[str, list[str]]]:
@@ -45,7 +45,7 @@ async def classify(summary: str, model: str) -> Category:
                 {"role": "user", "content": build_prompt(summary, node, options, rejected)},
             ],
             text_format=CategoryChoice,
-            **SAMPLING,
+            **request_options(model),
         )
         picked = resolve(choice.category, options + ([node] if node else []))
         if picked is None:
@@ -87,9 +87,9 @@ def build_prompt(summary: str, node: str, options: list[str], rejected: list[str
     if rejected:
         warning = "\n\nYour previous answer was not in the candidate list and was rejected: " + "; ".join(rejected) + "\nCopy one candidate exactly."
     return (
-        f"PRODUCT:\n{summary}\n\n"
+        f"CANDIDATE CATEGORIES:\n" + "\n".join(options) + "\n\n"
         f"CURRENT CATEGORY: {node or '(none yet)'}\n\n"
-        f"CANDIDATE CATEGORIES:\n" + "\n".join(options) + warning
+        f"PRODUCT:\n{summary}" + warning
     )
 
 

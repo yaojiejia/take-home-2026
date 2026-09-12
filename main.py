@@ -6,7 +6,8 @@ import re
 from pathlib import Path
 
 from llm import ai
-from llm.extract import DEFAULT_MODEL, extract_product
+from llm.extract import extract_product
+from llm.settings import DEFAULT_MODEL
 from models import ExtractionResult
 
 logger = logging.getLogger("ingest")

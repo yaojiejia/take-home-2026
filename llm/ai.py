@@ -29,7 +29,7 @@ MODEL_PRICES: dict[str, dict[str, float]] = {
 
 T = TypeVar("T", bound=BaseModel)
 
-usage_totals = {"calls": 0, "input_tokens": 0, "output_tokens": 0, "reasoning_tokens": 0, "cost_usd": 0.0}
+usage_totals = {"calls": 0, "input_tokens": 0, "cached_tokens": 0, "output_tokens": 0, "reasoning_tokens": 0, "cost_usd": 0.0}
 
 
 @lru_cache
@@ -51,6 +51,8 @@ def _log_usage(response) -> None:
     model = getattr(response, "model", "unknown")
     input_tokens = getattr(usage, "input_tokens", 0)
     output_tokens = getattr(usage, "output_tokens", 0)
+    input_details = getattr(usage, "input_tokens_details", None)
+    cached_tokens = getattr(input_details, "cached_tokens", 0) or 0
 
     # Handle reasoning tokens (may be in output_tokens_details)
     reasoning_tokens = 0
@@ -70,6 +72,7 @@ def _log_usage(response) -> None:
     single_total = single_input_cost + single_output_cost + single_reasoning_cost
 
     usage_totals["calls"] += 1
+    usage_totals["cached_tokens"] += cached_tokens
     usage_totals["input_tokens"] += input_tokens
     usage_totals["output_tokens"] += output_tokens
     usage_totals["reasoning_tokens"] += reasoning_tokens
@@ -80,7 +83,7 @@ def _log_usage(response) -> None:
 
     logger.info(
         f"Token usage for {model}: "
-        f"input={input_tokens}, output={output_tokens}, reasoning={reasoning_tokens} | "
+        f"input={input_tokens} (cached={cached_tokens}), output={output_tokens}, reasoning={reasoning_tokens} | "
         f"This query: ${single_total:.6f} | "
         f"1M queries: ${million_cost:,.2f} | "
         f"10M queries: ${million_cost * 10:,.2f}"

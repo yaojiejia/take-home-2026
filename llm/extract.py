@@ -1,9 +1,9 @@
-import os
 import re
 
 from llm import ai
 from llm.categorize import classify
 from llm.prompts import EXTRACTION_PROMPT
+from llm.settings import DEFAULT_MODEL, request_options
 from models import (
     Category,
     ExtractedProduct,
@@ -16,8 +16,6 @@ from models import (
 )
 from utils.preprocess import build_bundle, render_bundle
 
-DEFAULT_MODEL = os.environ.get("EXTRACTION_MODEL", "google/gemini-2.5-flash-lite")
-SAMPLING = {"temperature": 0}
 
 
 async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
@@ -29,7 +27,7 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
             {"role": "user", "content": render_bundle(bundle)},
         ],
         text_format=ExtractedProduct,
-        **SAMPLING,
+        **request_options(model),
     )
     category = await classify(category_summary(extracted), model)
     return assemble(extracted, bundle, category), bundle
