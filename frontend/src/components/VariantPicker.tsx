@@ -58,7 +58,7 @@ export function VariantPicker({ variants, onSelect }: Props) {
     <div className="space-y-5">
       {axes.map((axis) => (
         <div key={axis.name} className="space-y-2">
-          <div className="text-[11px] uppercase">
+          <div className="text-[13px] uppercase">
             {axis.name}
             {selection[axis.name] && <span className="ml-2 text-neutral-500">{selection[axis.name]}</span>}
           </div>
@@ -77,7 +77,7 @@ export function VariantPicker({ variants, onSelect }: Props) {
                   disabled={!offered}
                   onClick={() => pick(axis.name, value)}
                   className={[
-                    "min-w-10 border px-3 py-2 text-[11px] uppercase transition-colors",
+                    "min-w-10 border px-3 py-2 text-[13px] uppercase transition-colors",
                     active ? "border-black bg-black text-white" : "border-neutral-300 hover:border-black",
                     !offered ? "cursor-not-allowed text-neutral-300" : "",
                     offered && !inStock ? "text-neutral-400 line-through" : "",
@@ -90,7 +90,7 @@ export function VariantPicker({ variants, onSelect }: Props) {
           </div>
         </div>
       ))}
-      <div className="text-[11px] uppercase text-neutral-500">
+      <div className="text-[13px] uppercase text-neutral-500">
         {chosen ? (
           <span className="flex flex-wrap items-center gap-x-3">
             {chosen.sku && <span>Ref. {chosen.sku}</span>}
@@ -111,7 +111,7 @@ function VariantList({ variants }: { variants: Variant[] }) {
   if (variants.length === 1) {
     const only = variants[0]
     return (
-      <div className="flex flex-wrap items-center gap-x-3 text-[11px] uppercase text-neutral-500">
+      <div className="flex flex-wrap items-center gap-x-3 text-[13px] uppercase text-neutral-500">
         {only.sku && <span>Ref. {only.sku}</span>}
         {only.price && <span className="text-black">{formatMoney(only.price.price, only.price.currency)}</span>}
         <Availability available={only.available} />
@@ -119,7 +119,7 @@ function VariantList({ variants }: { variants: Variant[] }) {
     )
   }
   return (
-    <ul className="divide-y divide-neutral-200 border-y border-neutral-200 text-[11px] uppercase">
+    <ul className="divide-y divide-neutral-200 border-y border-neutral-200 text-[13px] uppercase">
       {variants.map((variant, i) => (
         <li key={`${variant.sku ?? ""}-${i}`} className="flex items-center justify-between gap-3 py-2">
           <span className="truncate">{variant.title ?? variant.sku ?? `Variant ${i + 1}`}</span>

@@ -7,7 +7,7 @@ type Props = {
 
 export function Gallery({ images, alt }: Props) {
   if (images.length === 0) {
-    return <div className="flex aspect-[3/4] items-center justify-center bg-white text-[11px] uppercase text-neutral-400">No image</div>
+    return <div className="flex aspect-[3/4] items-center justify-center bg-white text-[13px] uppercase text-neutral-400">No image</div>
   }
   const [first, ...rest] = images
   return (

@@ -45,7 +45,7 @@ export function CategoryMenu({ items, category, brand, onCategory, onBrand }: Pr
   }
 
   return (
-    <div className="space-y-8 text-[11px] uppercase">
+    <div className="space-y-8 text-[13px] uppercase">
       {ancestors.length > 0 && (
         <nav className="flex flex-wrap gap-x-2 text-neutral-500">
           <button type="button" onClick={() => onCategory("")} className="uppercase hover:text-black">

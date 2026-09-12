@@ -54,10 +54,10 @@ export function CatalogPage() {
   }
 
   if (error) {
-    return <p className="text-[11px] uppercase text-red-600">Could not load the catalog: {error}</p>
+    return <p className="text-[13px] uppercase text-red-600">Could not load the catalog: {error}</p>
   }
   if (items === null) {
-    return <p className="text-[11px] uppercase text-neutral-500">Loading</p>
+    return <p className="text-[13px] uppercase text-neutral-500">Loading</p>
   }
 
   const visible = items.filter((item) => inCategory(item, category) && (!brand || item.brand === brand))
@@ -73,7 +73,7 @@ export function CatalogPage() {
           onCategory={(path) => setFilter("category", path)}
           onBrand={(name) => setFilter("brand", name)}
         />
-        <div className="hidden pt-10 text-[11px] uppercase lg:block">
+        <div className="hidden pt-10 text-[13px] uppercase lg:block">
           <div className="text-neutral-500">View</div>
           <div className="flex gap-4 pt-2">
             {COLUMN_CHOICES.map((value) => (
@@ -92,7 +92,7 @@ export function CatalogPage() {
       </aside>
 
       <section>
-        <div className="flex items-end justify-between border-b border-black pb-2 text-[11px] uppercase">
+        <div className="flex items-end justify-between border-b border-black pb-2 text-[13px] uppercase">
           <div className="flex items-baseline gap-3">
             <span className="font-semibold">{heading}</span>
             {brand && <span>{brand}</span>}
@@ -113,7 +113,7 @@ export function CatalogPage() {
           </div>
         </div>
         {visible.length === 0 ? (
-          <p className="pt-6 text-[11px] uppercase text-neutral-500">No products here</p>
+          <p className="pt-6 text-[13px] uppercase text-neutral-500">No products here</p>
         ) : (
           <div className={`grid gap-x-[3px] gap-y-6 pt-[3px] ${COLUMN_CLASSES[columns]}`}>
             {visible.map((item) => (

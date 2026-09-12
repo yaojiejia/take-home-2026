@@ -8,7 +8,7 @@ export function Layout() {
           <Link to="/" className="text-[40px] font-black leading-none tracking-[-0.06em] md:text-[56px]">
             CATALOG
           </Link>
-          <nav className="flex gap-6 pt-2 text-[11px] uppercase tracking-wide">
+          <nav className="flex gap-6 pt-2 text-[13px] uppercase tracking-wide">
             <Link to="/" className="hover:underline">
               All products
             </Link>

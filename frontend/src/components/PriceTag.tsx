@@ -8,7 +8,7 @@ type Props = {
 
 export function PriceTag({ price, size = "sm" }: Props) {
   const onSale = price.compare_at_price !== null && price.compare_at_price > price.price
-  const text = size === "lg" ? "text-[13px]" : "text-[11px]"
+  const text = size === "lg" ? "text-[16px]" : "text-[13px]"
   return (
     <span className={`flex flex-wrap items-baseline gap-x-2 ${text}`}>
       {onSale && <span className="line-through">{formatMoney(price.compare_at_price!, price.currency)}</span>}

@@ -17,13 +17,13 @@ export function ProductCard({ item }: { item: CatalogItem }) {
             )}
           </>
         ) : (
-          <div className="flex h-full items-center justify-center text-[11px] uppercase text-neutral-400">No image</div>
+          <div className="flex h-full items-center justify-center text-[13px] uppercase text-neutral-400">No image</div>
         )}
       </div>
       <div className="space-y-1 px-1 pt-2 pb-4">
         <div className="flex items-start justify-between gap-3">
-          <div className="line-clamp-2 text-[11px] uppercase leading-snug">{item.name}</div>
-          {item.color_count > 1 && <span className="shrink-0 text-[10px] text-neutral-500">+{item.color_count - 1}</span>}
+          <div className="line-clamp-2 text-[13px] uppercase leading-snug">{item.name}</div>
+          {item.color_count > 1 && <span className="shrink-0 text-[12px] text-neutral-500">+{item.color_count - 1}</span>}
         </div>
         <PriceTag price={item.price} />
       </div>
