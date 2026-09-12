@@ -21,7 +21,7 @@ from utils.preprocess import build_bundle, render_bundle
 async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
     bundle = build_bundle(html, source_url)
     rendered = render_bundle(bundle)
-    page_numbers = numbers_in(rendered)
+    page_numbers = price_like_numbers(rendered)
     messages = [
         {"role": "system", "content": EXTRACTION_PROMPT},
         {"role": "user", "content": rendered},
@@ -36,13 +36,21 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
     return assemble(extracted, bundle, category), bundle
 
 
-def numbers_in(text: str) -> set[float]:
+PRICE_PATTERNS = (
+    re.compile(r"[$£€¥₹]\s?(\d[\d,]*(?:\.\d+)?)"),
+    re.compile(r"(\d[\d,]*(?:\.\d+)?)\s?(?:USD|GBP|EUR|CAD|AUD|JPY|INR|CHF|SEK|NOK|DKK)\b"),
+    re.compile(r"\"[^\"]*(?:price|amount|cost)[^\"]*\"\s*:\s*\"?(\d[\d,]*(?:\.\d+)?)", re.I),
+)
+
+
+def price_like_numbers(text: str) -> set[float]:
     found: set[float] = set()
-    for match in re.findall(r"\d[\d,]*(?:\.\d+)?", text):
-        try:
-            found.add(float(match.replace(",", "")))
-        except ValueError:
-            continue
+    for pattern in PRICE_PATTERNS:
+        for match in pattern.findall(text):
+            try:
+                found.add(float(match.replace(",", "")))
+            except ValueError:
+                continue
     return found
 
 
