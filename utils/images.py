@@ -13,6 +13,7 @@ VIDEO_URL_RE = re.compile(r"(?:https?:)?//[^\s\"'<>\\)]+?\.(?:mp4|webm|m3u8|mov)
 SRCSET_LIKE_RE = re.compile(r",\s*(https?:)?/")
 HEX_ID_RE = re.compile(r"(?<![a-z0-9])(?:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12,})(?![a-z0-9])", re.I)
 SIZE_SUFFIX_RE = re.compile(r"([-_@](\d{1,4}x\d{0,4}|\d{3,4}w?|\d+x|mini|thumb|thumbnail|small|medium|large|full|max|square|zoom|orig|original|xs|sm|md|lg|xl|xxl))+$", re.I)
+SIZE_DIR_RE = re.compile(r"^(\d{2,4}x\d{2,4}|\d{2,4}|[wh]_?\d{2,4}|(thumb|thumbnail|small|medium|large|full|max|zoom|orig|original|mini|xs|sm|md|lg|xl|xxl)s?)$", re.I)
 LARGE_WORDS_RE = re.compile(r"(?<![a-z])(orig|original|max|zoom|full|large|xl|xxl|big|hires|hi-res)(?![a-z])")
 SMALL_WORDS_RE = re.compile(r"(?<![a-z])(mini|thumb|thumbnail|small|square|tiny|icon|xs|sm)(?![a-z])")
 LABEL_KEY_RE = re.compile(r"colou?r|name|title|sku|style|code|label|variant|size|alt|option", re.I)
@@ -118,7 +119,7 @@ def group_key(url: str) -> str:
     if not segments:
         return parts.netloc
     filename = SIZE_SUFFIX_RE.sub("", segments[-1].rsplit(".", 1)[0])
-    parent = segments[-2] if len(segments) > 1 and re.search(r"\d", segments[-2]) else ""
+    parent = segments[-2] if len(segments) > 1 and not SIZE_DIR_RE.match(segments[-2]) else ""
     return "/".join(x for x in (parts.netloc, parent, filename) if x)
 
 
