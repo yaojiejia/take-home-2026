@@ -1,8 +1,13 @@
-import re
 import json
+import re
 
 from utils.html import tokenize
 
+# Cuts embedded JSON down to a character budget. Every subtree gets a density score
+# (signal keys per byte) and the least dense parts go first. Subtrees that name the
+# page's own product id are protected, so the displayed colourway outlives its siblings.
+
+# Key fragments that mark product data. A subtree's score is the count of these.
 SIGNAL_KEY_PARTS = (
     "price", "sku", "color", "colour", "size", "variant", "image", "name", "title",
     "description", "brand", "availab", "currency", "swatch", "gallery", "video",
@@ -10,6 +15,8 @@ SIGNAL_KEY_PARTS = (
     "discount", "product", "category", "bullet", "spec", "attribute", "offer",
     "url", "src", "img", "media", "asset", "photo", "picture",
 )
+# Key fragments that mark chrome. Dropped outright, unless the subtree names the page's
+# own id (L.L.Bean keeps its size index under a key called "questions").
 NOISE_KEY_PARTS = (
     "translation", "i18n", "analytics", "tracking", "experiment", "cookie",
     "consent", "navigation", "footer", "menu", "recommend", "related", "similar",
@@ -20,12 +27,16 @@ LONG_TEXT_KEY_PARTS = ("description", "feature", "bullet", "spec", "detail", "no
 MAX_LIST_ITEMS = 120
 MAX_STRING_CHARS = 400
 MAX_LONG_TEXT_CHARS = 4000
+# Budgets are characters of compact JSON. The embedded budget is whatever is left of the
+# total bundle budget, clamped to this range.
 MAX_JSON_BUDGET_CHARS = 48_000
 MIN_JSON_BUDGET_CHARS = 20_000
 JSON_LD_BUDGET_CHARS = 30_000
 MIN_DROPPABLE_CHARS = 1_500
 MAX_SHRINK_PASSES = 60
 OVERSHOOT_FACTOR = 1.5
+# A shrink pass only deletes within 3x of the lowest density present, then re-measures.
+# Sweeping from low to high density in one pass kept eating into product data.
 DENSITY_BAND = 3.0
 MAX_IDENTIFIER_HOLDERS = 20
 
@@ -48,6 +59,7 @@ def prune_json_ld(items: list[dict], title_tokens: set[str], identifiers: set[st
     return shrink_to_budget({"json-ld": kept}, title_tokens, identifiers, JSON_LD_BUDGET_CHARS).get("json-ld", [])
 
 
+# First pass, no budget: drop noise keys, empty containers, data URIs, and cap string lengths.
 def prune_node(node: object, key: str, title_tokens: set[str], identifiers: set[str]) -> object | None:
     if isinstance(node, (dict, list)) and is_noise_key(key) and not names_identifier(node, identifiers):
         return None
@@ -89,6 +101,9 @@ def node_score(node: object, key: str, title_tokens: set[str]) -> int:
     return score
 
 
+# Second pass, to budget. Each round re-measures the tree and deletes the least dense
+# candidates. Subtrees holding a protected identifier sit in a higher tier and go last.
+# While a lower tier exists its dicts are summarised (nested values dropped), not deleted.
 def shrink_to_budget(root: dict, title_tokens: set[str], identifiers: set[str], budget: int) -> dict:
     for _ in range(MAX_SHRINK_PASSES):
         candidates: list[tuple[float, int, list, int]] = []
@@ -113,8 +128,10 @@ def shrink_to_budget(root: dict, title_tokens: set[str], identifiers: set[str], 
                 break
             if any(is_prefix(c[0], path) for c in chosen):
                 continue
+            # A parent replaces its already-chosen children, so a low-density blob goes whole.
             inside = [c for c in chosen if is_prefix(path, c[0])]
             freed = excess + sum(needed for _, needed in inside)
+            # Never delete a dict much larger than what is still needed; lists get truncated instead.
             if not expendable and subtree_size > freed * OVERSHOOT_FACTOR and not isinstance(node_at(root, path), list):
                 continue
             chosen = [c for c in chosen if c not in inside]
@@ -141,6 +158,7 @@ def trimmable(node: object, level: int, deepest: dict[int, int]) -> bool:
     return deepest.get(id(node), level) <= level
 
 
+# Lists shrink from the end and never below one item, so a variant list keeps its shape.
 def truncate_list(node: list, needed: int, level: int, deepest: dict[int, int]) -> None:
     order = sorted(range(len(node)), key=lambda i: (deepest.get(id(node[i]), level), -i))
     removed = 0
@@ -180,6 +198,7 @@ def is_prefix(prefix: list, path: list) -> bool:
     return len(prefix) <= len(path) and path[: len(prefix)] == prefix
 
 
+# For each container: which page identifiers it names directly (own) and anywhere below (found).
 def mark_identifiers(node: object, identifiers: set[str], marks: dict[int, tuple[set[str], set[str]]]) -> set[str]:
     own: set[str] = set()
     found: set[str] = set()
@@ -197,11 +216,15 @@ def mark_identifiers(node: object, identifiers: set[str], marks: dict[int, tuple
     return found
 
 
+# An identifier repeated on every SKU no longer tells siblings apart, so it stops protecting.
 def rare_identifiers(identifiers: set[str], marks: dict[int, tuple[set[str], set[str]]]) -> set[str]:
     holders = {identifier: sum(1 for own, _ in marks.values() if identifier in own) for identifier in identifiers}
     return {identifier for identifier, count in holders.items() if 0 < count <= MAX_IDENTIFIER_HOLDERS}
 
 
+# Among siblings, containers that name the page's id are promoted and, when the parent is
+# unprotected, the rest demoted. This keeps the displayed colourway's sizes and drops the
+# sibling colourways first.
 def sibling_protection(children: list, marks: dict[int, tuple[set[str], set[str]]], parent_protection: int, identifiers: set[str]) -> list[int]:
     containers = [c for c in children if isinstance(c, (dict, list))]
     if not containers or not identifiers:
@@ -234,6 +257,8 @@ def sibling_protection(children: list, marks: dict[int, tuple[set[str], set[str]
     return levels
 
 
+# Returns (size, score, deepest protection below) and records every droppable subtree as
+# a candidate tuple: (density, -size, path, protection).
 def measure(
     node: object,
     key: str,
@@ -250,7 +275,7 @@ def measure(
     if isinstance(node, dict):
         size = 2
         levels = sibling_protection(list(node.values()), marks, protection, identifiers)
-        for (child_key, child), level in zip(node.items(), levels):
+        for (child_key, child), level in zip(node.items(), levels, strict=True):
             child_size, child_score, child_deepest = measure(child, child_key, path + [child_key], title_tokens, out, marks, identifiers, deepest_map, level)
             size += child_size + len(child_key) + 4
             score += child_score
@@ -258,7 +283,7 @@ def measure(
     elif isinstance(node, list):
         size = 2
         levels = sibling_protection(node, marks, protection, identifiers)
-        for index, (child, level) in enumerate(zip(node, levels)):
+        for index, (child, level) in enumerate(zip(node, levels, strict=True)):
             child_size, child_score, child_deepest = measure(child, key, path + [index], title_tokens, out, marks, identifiers, deepest_map, level)
             size += child_size + 1
             score += child_score

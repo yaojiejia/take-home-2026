@@ -29,8 +29,11 @@ PARSE_ATTEMPTS = 2
 EXTRACTION_PROMPT = extraction_prompt(TOP_LEVEL)
 
 
+# One extraction call, then deterministic checks. The model never sees image URLs,
+# only the ids of the bundle's candidate list.
 async def extract_product(html: str, source_url: str | None = None, model: str = DEFAULT_MODEL) -> tuple[Product, PageBundle]:
     bundle = build_bundle(html, source_url)
+    # A site root as canonical URL means a redirect landed on the homepage.
     if bundle.source_url and urlparse(bundle.source_url).path.strip("/") == "":
         raise ValueError(f"Not a product page: the canonical URL is the site root ({bundle.source_url})")
     rendered = render_bundle(bundle)
@@ -40,6 +43,8 @@ async def extract_product(html: str, source_url: str | None = None, model: str =
         {"role": "user", "content": rendered},
     ]
     extracted = await parse_with_retry(model, messages)
+    # The price must appear in the page as a price-like number. One corrective retry,
+    # then fail rather than store a guess.
     if not price_is_grounded(extracted.price, page_numbers):
         messages.append({"role": "user", "content": price_correction(extracted.price)})
         extracted = await parse_with_retry(model, messages)
@@ -63,6 +68,8 @@ SIZE_OPTION_RE = re.compile(r"size|length|width|capacity|volume|weight", re.I)
 SIZE_WINDOW = 4000
 
 
+# A size must appear within 4K characters of its SKU in the bundle. Without this, the
+# model assigned every size from a size chart to every SKU.
 def drop_ungrounded_sizes(extracted: ExtractedProduct, page_text: str) -> None:
     seen: set[tuple] = set()
     kept: list[ExtractedVariant] = []
@@ -88,6 +95,7 @@ def near_sku(sku: str, value: str, page_text: str) -> bool:
     return False
 
 
+# What counts as a price on the page: currency-marked, currency-coded, or under a price-like key.
 PRICE_PATTERNS = (
     re.compile(r"[$£€¥₹]\s?(\d[\d,]*(?:\.\d+)?)"),
     re.compile(r"(\d[\d,]*(?:\.\d+)?)\s?(?:USD|GBP|EUR|CAD|AUD|JPY|INR|CHF|SEK|NOK|DKK)\b"),
@@ -132,6 +140,7 @@ def category_summary(extracted: ExtractedProduct) -> str:
     )
 
 
+# Platform placeholders for "no option" (Shopify's Default Title), not real choices.
 PLACEHOLDER_OPTIONS = {"default title", "default", "n/a", "none", "one size fits all"}
 
 
@@ -139,6 +148,8 @@ def real_option(value: str) -> bool:
     return bool(value.strip()) and value.strip().lower() not in PLACEHOLDER_OPTIONS
 
 
+# If the page labels an image with exactly this colour name (a swatch) and the model
+# picked none of those, that image goes first. Nike's galleries otherwise opened on the outsole.
 def lead_with_colour_images(urls: list[str], colour: str | None, images: list[ImageCandidate]) -> list[str]:
     wanted = clean_text(colour or "").lower()
     if not wanted:
@@ -156,6 +167,7 @@ def colour_of(options: list) -> str | None:
     return None
 
 
+# An axis whose values are all the product's colours is the colour axis, whatever it was called.
 def relabel_colour_axis(variants: list[ExtractedVariant], colors: list[str]) -> None:
     palette = {clean_text(c).lower() for c in colors if clean_text(c)}
     values: dict[str, set[str]] = {}
@@ -173,6 +185,8 @@ def relabel_colour_axis(variants: list[ExtractedVariant], colors: list[str]) -> 
                 o.name = "Color"
 
 
+# Builds the final Product. On-page variants keep their options. Linked colourways become
+# colour-only variants, since their sizes are not selectable on this page.
 def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category) -> Product:
     by_id = {img.id: img for img in bundle.images}
     currency = extracted.currency.strip().upper()[:3] or "USD"
@@ -221,6 +235,9 @@ def assemble(extracted: ExtractedProduct, bundle: PageBundle, category: Category
     )
 
 
+# Variants whose SKU carries the page's own style code belong to this page. The rest are
+# sibling colourways the model listed anyway; collapse each to one colour entry unless the
+# model already named that colourway.
 def split_by_page_identifier(extracted: ExtractedProduct, identifiers: set[str]) -> tuple[list[ExtractedVariant], list[ExtractedColorway]]:
     def pinned(variant: ExtractedVariant) -> bool:
         return any(identifier in (variant.sku or "").lower() for identifier in identifiers)
@@ -240,6 +257,7 @@ def split_by_page_identifier(extracted: ExtractedProduct, identifiers: set[str])
     return on_page, extracted.linked_colorways + extra
 
 
+# A variant carries its own price only when it differs from the product price.
 def variant_price(price: float | None, compare_at: float | None, currency: str, base: tuple[float, float | None]) -> Price | None:
     if price is None:
         return None

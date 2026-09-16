@@ -7,11 +7,15 @@ from models import ImageCandidate
 from utils.html import clean_space
 from utils.json_prune import is_noise_key
 
+# Collects every image URL on the page into a numbered candidate list. The model picks ids,
+# and each id resolves to the largest known version of that photo.
 IMAGE_EXT_RE = re.compile(r"\.(jpe?g|png|webp|avif|jfif)(\?|$)", re.I)
 IMAGE_URL_RE = re.compile(r"(?:https?:)?//[^\s\"'<>\\)]+?\.(?:jpe?g|png|webp|avif)(?:\?[^\s\"'<>\\)]*)?", re.I)
 VIDEO_URL_RE = re.compile(r"(?:https?:)?//[^\s\"'<>\\)]+?\.(?:mp4|webm|m3u8|mov)(?:\?[^\s\"'<>\\)]*)?", re.I)
 SRCSET_LIKE_RE = re.compile(r",\s*(https?:)?/")
 HEX_ID_RE = re.compile(r"(?<![a-z0-9])(?:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[0-9a-f]{12,})(?![a-z0-9])", re.I)
+# Size markers in filenames and directories (photo_800x800, /large/). Stripping them groups
+# the same photo at different sizes.
 SIZE_SUFFIX_RE = re.compile(r"([-_@](\d{1,4}x\d{0,4}|\d{3,4}w?|\d+x|mini|thumb|thumbnail|small|medium|large|full|max|square|zoom|orig|original|xs|sm|md|lg|xl|xxl))+$", re.I)
 SIZE_DIR_RE = re.compile(r"^(\d{2,4}x\d{2,4}|\d{2,4}|[wh]_?\d{2,4}|(thumb|thumbnail|small|medium|large|full|max|zoom|orig|original|mini|xs|sm|md|lg|xl|xxl)s?)$", re.I)
 LARGE_WORDS_RE = re.compile(r"(?<![a-z])(orig|original|max|zoom|full|large|xl|xxl|big|hires|hi-res)(?![a-z])")
@@ -27,6 +31,7 @@ URL_NOISE_TOKENS = {"logo", "logos", "icon", "icons", "sprite", "sprites", "flag
 ALT_NOISE_TOKENS = {"logo", "icon", "sprite", "placeholder", "spinner", "favicon"}
 IMAGE_PATH_HINTS = ("/image", "/img/", "/images/", "/media/", "/files/", "/files", "/shop/products/", "/photo", "/is/image/", "/i/")
 IMAGE_HOST_HINTS = ("media", "image", "img", "cdn", "assets", "static", "photo", "pic")
+# URLs from these sources skip the extension check; CDNs like Scene7 serve images without one.
 TRUSTED_SOURCES = ("img", "meta", "json-ld")
 NON_IMAGE_SUFFIXES = (".js", ".css", ".html", ".json", ".svg", ".gif")
 RESIZE_QUERY_KEYS = {
@@ -89,6 +94,8 @@ def collect_videos(tree: HTMLParser, html: str, base_url: str) -> list[str]:
     return unique[:MAX_VIDEO_CANDIDATES]
 
 
+# Group URLs by photo and keep the largest. Then learn per-CDN upgrades: if one photo is seen
+# under both a 400px and a 1872px prefix, every photo on the 400px prefix gets the larger one.
 def dedupe_and_rank(raw: list[tuple[str, str, str]], base_url: str) -> list[ImageCandidate]:
     groups: dict[str, dict] = {}
     for url, source, context in raw:
@@ -160,6 +167,8 @@ def pick_largest(urls: list[str]) -> str:
     return max(urls, key=lambda url: (size_hint(size_bearing_path(urlsplit(url).path)), -len(url)))
 
 
+# Ordering key for "which URL is biggest": size words beat dimensions beat bare numbers.
+# Hex ids are removed first so a UUID's digits are not read as a size.
 def size_hint(path: str) -> tuple[int, int, int]:
     path = path.lower()
     dims = re.findall(r"(?<![a-z0-9])(\d{2,4})x(\d{2,4})(?![a-z0-9])", path)
@@ -176,6 +185,7 @@ def size_bearing_path(path: str) -> str:
     return HEX_ID_RE.sub("", "/".join(segments[:-1]) + "/" + filename[len(stem):])
 
 
+# Resize query parameters are stripped so the CDN serves the original.
 def normalize_url(url: str, base_url: str) -> str | None:
     url = url.strip().replace("&amp;", "&")
     if SRCSET_LIKE_RE.search(url):
@@ -213,6 +223,7 @@ def looks_like_image_path(url: str) -> bool:
     return any(hint in parts.path for hint in IMAGE_PATH_HINTS) or bool(host_tokens & set(IMAGE_HOST_HINTS))
 
 
+# Images inside nav, footer, menus, or cookie banners are never product images.
 def inside_site_chrome(node: Node) -> bool:
     current = node.parent
     while current is not None and current.tag != "body":

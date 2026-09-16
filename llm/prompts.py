@@ -1,3 +1,6 @@
+# Generic on purpose: field rules only, no site names, no examples from the data. Sizes are
+# scoped to the displayed colourway because sibling colourways link to their own pages and
+# their sizes are not selectable here.
 EXTRACTION_PROMPT_TEMPLATE = """You extract structured product data from a compacted representation of a single
 retail product detail page. The representation contains page metadata, JSON-LD, pruned embedded
 page data, the visible page text, and numbered lists of image and video candidates.

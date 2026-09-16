@@ -8,6 +8,9 @@ from models import Category, CategoryChoice
 
 TAXONOMY_FILE = Path(__file__).resolve().parent.parent / "categories.txt"
 SEPARATOR = " > "
+# Every top-level section renders under this size, so classification is one call over the
+# whole section as an indented, numbered tree. The earlier two-level walk was greedy: once it
+# picked Athletics it could never reach Pickleball under Outdoor Games.
 MAX_OPTION_CHARS = 33_000
 MAX_STEPS = 6
 MAX_REJECTED = 2
@@ -30,6 +33,8 @@ PATHS, CHILDREN = load_taxonomy()
 TOP_LEVEL = CHILDREN[""]
 
 
+# The extractor names the top-level section; this picks within it. An out-of-range id gets
+# one retry, then the deepest valid node so far is the answer.
 async def classify(summary: str, root_hint: str, model: str) -> Category:
     node = resolve_root(root_hint)
     rejected: list[int] = []
@@ -71,6 +76,7 @@ def resolve_root(hint: str) -> str:
     return ""
 
 
+# Two-level fallback only if a section ever outgrows the cap.
 def candidate_options(node: str) -> tuple[list[str], bool]:
     everything = ([node] if node else []) + descendants(node)
     if len(render_tree(everything)) <= MAX_OPTION_CHARS:

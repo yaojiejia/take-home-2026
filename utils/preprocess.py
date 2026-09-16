@@ -11,6 +11,7 @@ TOTAL_BUNDLE_CHARS = 72_000
 MIN_DOM_TEXT_CHARS = 500
 
 
+# Two stages: everything except embedded JSON first, then the JSON gets whatever budget is left.
 def build_bundle(html: str, source_url: str | None = None) -> PageBundle:
     tree = HTMLParser(html)
     meta = extract_meta(tree)

@@ -1,12 +1,13 @@
-from typing import Any
 from pathlib import Path
+from typing import Any
+
 from pydantic import BaseModel, field_validator
 
 # Load categories once at module level
 CATEGORIES_FILE = Path(__file__).parent / "categories.txt"
 VALID_CATEGORIES = set()
 if CATEGORIES_FILE.exists():
-    with open(CATEGORIES_FILE, "r") as f:
+    with open(CATEGORIES_FILE) as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith("#"):
@@ -44,7 +45,7 @@ class Variant(BaseModel):
     image_urls: list[str] = []
 
 
-# This is the final product schema that you need to output. 
+# This is the final product schema that you need to output.
 # You may add additional models as needed.
 class Product(BaseModel):
     name: str

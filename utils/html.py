@@ -36,6 +36,8 @@ def extract_meta(tree: HTMLParser) -> dict[str, str]:
     return meta
 
 
+# The last path segments of the canonical URL that look like ids (style codes, numeric ids,
+# long slugs). They tell this product's data apart from its siblings' throughout the pipeline.
 def page_identifiers(meta: dict[str, str]) -> set[str]:
     identifiers: set[str] = set()
     for key in ("og:url", "canonical"):
@@ -64,6 +66,7 @@ def extract_json_ld(tree: HTMLParser) -> list[dict]:
     return found
 
 
+# Inline JSON: <script type=application/json>, __NEXT_DATA__, and window.X = {...} assignments.
 def extract_embedded_json(tree: HTMLParser) -> list[tuple[str, object]]:
     blobs: list[tuple[str, object]] = []
     seen: set[int] = set()
@@ -90,6 +93,10 @@ def extract_embedded_json(tree: HTMLParser) -> list[tuple[str, object]]:
     return blobs
 
 
+# Next.js app-router pages ship the page as React Server Component rows inside
+# self.__next_f.push calls, often with no text outside scripts at all. Rows are keyed by id
+# and point at each other with "$id" strings; referenced rows are inlined once so a product
+# object lands where it is used.
 def extract_rsc(tree: HTMLParser) -> tuple[dict[str, object], str]:
     chunks: list[str] = []
     for node in tree.css("script"):
@@ -169,6 +176,8 @@ def parse_rsc_payload(payload: str) -> list[tuple[str, object]]:
 CODE_HINT_RE = re.compile(r"function\s*\(|=>|\bvar\s|\bdocument\.|\bwindow\.|<[a-z]+[\s>]|\{\"")
 
 
+# Rendered text is only what sits in an element's children. Client-component props carry
+# nav trees and copy decks, which read as noise.
 def rsc_text(node: object, out: list[str], inside_element: bool) -> None:
     if isinstance(node, str):
         if inside_element and len(node) > 1 and not node.startswith("$") and "://" not in node and not node.startswith("/") and not CODE_HINT_RE.search(node):
