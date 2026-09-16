@@ -7,7 +7,7 @@ export function Layout() {
       <header className="px-4 pt-5 pb-3 md:px-8">
         <div className="flex items-start justify-between">
           <Link to="/" viewTransition className="text-[40px] font-black leading-none tracking-[-0.06em] md:text-[56px]">
-            CATALOG
+            CHANNEL3
           </Link>
           <nav className="pt-2 text-[13px] uppercase tracking-wide">
             <Link to="/" viewTransition className="hover:underline">

@@ -39,9 +39,9 @@ export function ProductPage() {
   }, [id])
 
   useEffect(() => {
-    document.title = record ? `${record.product.name} · Catalog` : "Catalog"
+    document.title = record ? `${record.product.name} · Channel3` : "Channel3"
     return () => {
-      document.title = "Catalog"
+      document.title = "Channel3"
     }
   }, [record])
 

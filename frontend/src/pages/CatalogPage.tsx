@@ -35,7 +35,7 @@ export function CatalogPage() {
   }, [])
 
   useEffect(() => {
-    document.title = category ? `${category.split(" > ").pop()} · Catalog` : "Catalog"
+    document.title = category ? `${category.split(" > ").pop()} · Channel3` : "Channel3"
   }, [category])
 
   function setFilter(key: "category" | "brand", value: string) {
