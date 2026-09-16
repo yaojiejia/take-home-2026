@@ -4,25 +4,12 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
 
-from models import ExtractionResult, Price
+from models import CatalogItem, ExtractionResult
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "output"
 DIST_DIR = ROOT / "frontend" / "dist"
-
-
-class CatalogItem(BaseModel):
-    id: str
-    name: str
-    brand: str
-    price: Price
-    image_url: str | None
-    hover_image_url: str | None
-    category: str
-    color_count: int
-    variant_count: int
 
 
 def load_products() -> dict[str, ExtractionResult]:

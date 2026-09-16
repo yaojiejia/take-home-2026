@@ -121,3 +121,15 @@ class ExtractionResult(BaseModel):
     source_url: str | None = None
     model: str
     product: Product
+
+
+class CatalogItem(BaseModel):
+    id: str
+    name: str
+    brand: str
+    price: Price
+    image_url: str | None
+    hover_image_url: str | None
+    category: str
+    color_count: int
+    variant_count: int
