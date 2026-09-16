@@ -64,8 +64,8 @@ A variant is `{sku, title, options: [{name, value}], price, available, image_url
 Sizes belong only to the colourway shown on the page. Other colourways are listed as
 colour-only variants, since their sizes are not selectable there.
 
-The page-shrinking step borrows ideas from AXE (Zhang et al., 2026) and HtmlRAG
-(Tan et al., 2024).
+The page-shrinking step borrows ideas from [AXE](https://arxiv.org/abs/2602.01838)
+(Zhang et al., 2026) and [HtmlRAG](https://arxiv.org/abs/2411.02959) (Tan et al., 2024).
 
 ## Data
 
